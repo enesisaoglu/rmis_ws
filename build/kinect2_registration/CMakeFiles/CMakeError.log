@@ -1,0 +1,180 @@
+Determining if the CL_VERSION_2_2 exist failed with the following output:
+Change Dir: /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f243b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f243b.dir/build.make CMakeFiles/cmTC_f243b.dir/build
+gmake[1]: Entering directory '/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f243b.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_f243b.dir/CheckSymbolExists.c.o -c /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h: No such file or directory
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f243b.dir/build.make:78: CMakeFiles/cmTC_f243b.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_f243b/fast] Error 2
+
+
+File /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_2_2
+  return ((int*)(&CL_VERSION_2_2))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_2_1 exist failed with the following output:
+Change Dir: /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_50d8b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_50d8b.dir/build.make CMakeFiles/cmTC_50d8b.dir/build
+gmake[1]: Entering directory '/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_50d8b.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_50d8b.dir/CheckSymbolExists.c.o -c /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h: No such file or directory
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_50d8b.dir/build.make:78: CMakeFiles/cmTC_50d8b.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_50d8b/fast] Error 2
+
+
+File /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_2_1
+  return ((int*)(&CL_VERSION_2_1))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_2_0 exist failed with the following output:
+Change Dir: /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_da944/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_da944.dir/build.make CMakeFiles/cmTC_da944.dir/build
+gmake[1]: Entering directory '/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_da944.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_da944.dir/CheckSymbolExists.c.o -c /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h: No such file or directory
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_da944.dir/build.make:78: CMakeFiles/cmTC_da944.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_da944/fast] Error 2
+
+
+File /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_2_0
+  return ((int*)(&CL_VERSION_2_0))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_1_2 exist failed with the following output:
+Change Dir: /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_7b95a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7b95a.dir/build.make CMakeFiles/cmTC_7b95a.dir/build
+gmake[1]: Entering directory '/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7b95a.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_7b95a.dir/CheckSymbolExists.c.o -c /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h: No such file or directory
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_7b95a.dir/build.make:78: CMakeFiles/cmTC_7b95a.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_7b95a/fast] Error 2
+
+
+File /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_1_2
+  return ((int*)(&CL_VERSION_1_2))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_1_1 exist failed with the following output:
+Change Dir: /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f2377/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f2377.dir/build.make CMakeFiles/cmTC_f2377.dir/build
+gmake[1]: Entering directory '/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f2377.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_f2377.dir/CheckSymbolExists.c.o -c /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h: No such file or directory
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f2377.dir/build.make:78: CMakeFiles/cmTC_f2377.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_f2377/fast] Error 2
+
+
+File /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_1_1
+  return ((int*)(&CL_VERSION_1_1))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_1_0 exist failed with the following output:
+Change Dir: /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c6f7a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c6f7a.dir/build.make CMakeFiles/cmTC_c6f7a.dir/build
+gmake[1]: Entering directory '/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c6f7a.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_c6f7a.dir/CheckSymbolExists.c.o -c /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h: No such file or directory
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_c6f7a.dir/build.make:78: CMakeFiles/cmTC_c6f7a.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_c6f7a/fast] Error 2
+
+
+File /home/enesisaoglu/rmis_ws/build/kinect2_registration/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_1_0
+  return ((int*)(&CL_VERSION_1_0))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

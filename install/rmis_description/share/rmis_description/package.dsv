@@ -1,0 +1,8 @@
+source;share/rmis_description/hook/cmake_prefix_path.ps1
+source;share/rmis_description/hook/cmake_prefix_path.dsv
+source;share/rmis_description/hook/cmake_prefix_path.sh
+source;share/rmis_description/local_setup.bash
+source;share/rmis_description/local_setup.dsv
+source;share/rmis_description/local_setup.ps1
+source;share/rmis_description/local_setup.sh
+source;share/rmis_description/local_setup.zsh

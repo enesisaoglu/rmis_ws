@@ -1,0 +1,29 @@
+[0.006s] Invoking command in '/home/enesisaoglu/rmis_ws/build/kinect2_bridge': CMAKE_PREFIX_PATH=/home/enesisaoglu/rmis_ws/install/kinect2_registration:/home/enesisaoglu/rmis_ws/install/rmis_description:/home/enesisaoglu/rmis_ws/install/kinect2_bridge:/opt/ros/humble /usr/bin/cmake --build /home/enesisaoglu/rmis_ws/build/kinect2_bridge -- -j22 -l22
+[0.043s] [100%] Built target kinect2_bridge
+[0.051s] Invoked command in '/home/enesisaoglu/rmis_ws/build/kinect2_bridge' returned '0': CMAKE_PREFIX_PATH=/home/enesisaoglu/rmis_ws/install/kinect2_registration:/home/enesisaoglu/rmis_ws/install/rmis_description:/home/enesisaoglu/rmis_ws/install/kinect2_bridge:/opt/ros/humble /usr/bin/cmake --build /home/enesisaoglu/rmis_ws/build/kinect2_bridge -- -j22 -l22
+[0.052s] Invoking command in '/home/enesisaoglu/rmis_ws/build/kinect2_bridge': CMAKE_PREFIX_PATH=/home/enesisaoglu/rmis_ws/install/kinect2_registration:/home/enesisaoglu/rmis_ws/install/rmis_description:/home/enesisaoglu/rmis_ws/install/kinect2_bridge:/opt/ros/humble /usr/bin/cmake --install /home/enesisaoglu/rmis_ws/build/kinect2_bridge
+[0.057s] -- Install configuration: ""
+[0.057s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/lib/kinect2_bridge/kinect2_bridge
+[0.057s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/include
+[0.057s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/include/kinect2_bridge
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/include/kinect2_bridge/kinect2_definitions.h
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/launch
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/launch/kinect2_bridge.launch.py
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/ament_index/resource_index/package_run_dependencies/kinect2_bridge
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/ament_index/resource_index/parent_prefix_path/kinect2_bridge
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/environment/ament_prefix_path.sh
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/environment/ament_prefix_path.dsv
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/environment/path.sh
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/environment/path.dsv
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/local_setup.bash
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/local_setup.sh
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/local_setup.zsh
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/local_setup.dsv
+[0.058s] -- Installing: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/package.dsv
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/ament_index/resource_index/packages/kinect2_bridge
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/cmake/kinect2_bridgeConfig.cmake
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/cmake/kinect2_bridgeConfig-version.cmake
+[0.058s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_bridge/share/kinect2_bridge/package.xml
+[0.060s] Invoked command in '/home/enesisaoglu/rmis_ws/build/kinect2_bridge' returned '0': CMAKE_PREFIX_PATH=/home/enesisaoglu/rmis_ws/install/kinect2_registration:/home/enesisaoglu/rmis_ws/install/rmis_description:/home/enesisaoglu/rmis_ws/install/kinect2_bridge:/opt/ros/humble /usr/bin/cmake --install /home/enesisaoglu/rmis_ws/build/kinect2_bridge

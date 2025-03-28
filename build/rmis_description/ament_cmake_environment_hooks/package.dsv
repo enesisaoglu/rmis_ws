@@ -1,0 +1,4 @@
+source;share/rmis_description/local_setup.bash
+source;share/rmis_description/local_setup.dsv
+source;share/rmis_description/local_setup.sh
+source;share/rmis_description/local_setup.zsh

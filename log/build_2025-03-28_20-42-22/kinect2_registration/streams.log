@@ -1,0 +1,35 @@
+[0.011s] Invoking command in '/home/enesisaoglu/rmis_ws/build/kinect2_registration': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/enesisaoglu/rmis_ws/build/kinect2_registration -- -j22 -l22
+[0.036s] [35m[1mConsolidate compiler generated dependencies of target kinect2_registration[0m
+[0.048s] [100%] Built target kinect2_registration
+[0.060s] Invoked command in '/home/enesisaoglu/rmis_ws/build/kinect2_registration' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/enesisaoglu/rmis_ws/build/kinect2_registration -- -j22 -l22
+[0.061s] Invoking command in '/home/enesisaoglu/rmis_ws/build/kinect2_registration': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/enesisaoglu/rmis_ws/build/kinect2_registration
+[0.066s] -- Install configuration: ""
+[0.066s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/lib/libkinect2_registration.so
+[0.066s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/include
+[0.066s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/include/kinect2_registration
+[0.066s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/include/kinect2_registration/kinect2_console.h
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/include/kinect2_registration/kinect2_registration.h
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/include/internal
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/include/internal/CL
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/include/internal/CL/cl.hpp
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/environment/library_path.sh
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/environment/library_path.dsv
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/ament_index/resource_index/package_run_dependencies/kinect2_registration
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/ament_index/resource_index/parent_prefix_path/kinect2_registration
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/environment/ament_prefix_path.sh
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/environment/ament_prefix_path.dsv
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/environment/path.sh
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/environment/path.dsv
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/local_setup.bash
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/local_setup.sh
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/local_setup.zsh
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/local_setup.dsv
+[0.067s] -- Installing: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/package.dsv
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/ament_index/resource_index/packages/kinect2_registration
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/cmake/kinect2_registration.cmake
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/cmake/ament_cmake_export_libraries-extras.cmake
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/cmake/kinect2_registrationConfig.cmake
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/cmake/kinect2_registrationConfig-version.cmake
+[0.067s] -- Up-to-date: /home/enesisaoglu/rmis_ws/install/kinect2_registration/share/kinect2_registration/package.xml
+[0.068s] Invoked command in '/home/enesisaoglu/rmis_ws/build/kinect2_registration' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/enesisaoglu/rmis_ws/build/kinect2_registration

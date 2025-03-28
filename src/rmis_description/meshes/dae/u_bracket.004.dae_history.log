@@ -1,0 +1,3 @@
+Instantiated with filepath=None->None, scale=[0.9999992847442627, 0.9999996423721313, 0.9999992847442627], mesh=<bpy_struct, Mesh("u bracket.004") at 0x72257b802320>, meshname=u bracket.004, material=None, mesh_orientation=None, {}
+->trying export of <bpy_struct, Mesh("u bracket.004") at 0x72257b802320> to /home/enesisaoglu/rmis_urdf_final/rmis_robot/meshes/dae/u bracket.004.dae
+->wrote dae to /home/enesisaoglu/rmis_urdf_final/rmis_robot/meshes/dae/u bracket.004.dae from bpy_types.Mesh
