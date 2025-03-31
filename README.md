@@ -1,4 +1,4 @@
-# RMIS - Humanoid Robot with Kinect Integration
+# RMIS 
 
 ## Overview
 RMIS is a humanoid robot project designed to process skeletal data from a Kinect camera and move its motors based on human movements. This is an open-source project developed for a capstone project, built using ROS2 Humble, Blender, and a Kinect camera.
@@ -38,6 +38,7 @@ RMIS is a humanoid robot project designed to process skeletal data from a Kinect
     source install/setup.bash
 
 4. **Kinect Camera Setup:**
+
 To access the Kinect camera, follow the instructions from [kinect2_ros2](https://gitioc.upc.edu/labs/kinect2_ros2/-/blob/main/README.md?ref_type=heads).
 
 ## Usage
