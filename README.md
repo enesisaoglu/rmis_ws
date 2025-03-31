@@ -44,8 +44,8 @@ To access the Kinect camera, follow the instructions from [kinect2_ros2](https:/
 
 1. **Visualize the robot in RViz:**
    ```bash
-   launch rmis_description display.launch.py
- ros2![rmis_rviz](https://github.com/user-attachments/assets/7640da43-6544-4a3b-98e2-9ecd17414d78)
+   ros2 launch rmis_description display.launch.py
+ ![rmis_rviz](https://github.com/user-attachments/assets/7640da43-6544-4a3b-98e2-9ecd17414d78)
  
 ## Contributing
 Feel free to fork this project, submit issues, or send pull requests. All contributions are welcome!
