@@ -51,7 +51,7 @@ To access the Kinect camera, follow the instructions from [kinect2_ros2](https:/
 Feel free to fork this project, submit issues, or send pull requests. All contributions are welcome!
 
 ## License
-This project is licensed under the MIT License (see LICENSE file for details).
+This project is licensed under the MIT License.
 
 
 
