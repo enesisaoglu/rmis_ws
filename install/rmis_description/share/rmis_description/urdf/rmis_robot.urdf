@@ -98,7 +98,7 @@
   <joint name="r_ankle_link_k_joint" type="revolute">
     <dynamics damping="5.00000"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="-0.00000 -0.00000 0.00000" xyz="67.37613 -0.01323 -0.03973"/>
+    <origin rpy="-0.00000 0.00000 -0.00000" xyz="67.37610 -0.01323 -0.03973"/>
     <parent link="r_lower_leg_link_k"/>
     <child link="r_ankle_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
@@ -146,7 +146,7 @@
   <joint name="r_lower_leg_link_k_joint" type="revolute">
     <dynamics damping="5.00000"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="-0.00000 0.00000 -0.01530" xyz="66.92873 -0.84708 -0.12632"/>
+    <origin rpy="0.00000 0.00000 0.05543" xyz="66.82124 3.88529 -0.12632"/>
     <parent link="r_upper_leg_link_k"/>
     <child link="r_lower_leg_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
@@ -182,7 +182,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/27-1a.001.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/27-1a.001.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -193,7 +193,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/u_bracket.003.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.003.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
     <visual name="l_feet_link">
@@ -202,7 +202,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Cube.001.dae" scale="0.77000 0.81000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.001.dae" scale="0.77000 0.81000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -213,7 +213,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/u_bracket.015.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.015.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -224,7 +224,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Cube.019.dae" scale="2.00000 18.36721 18.36721"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.019.dae" scale="2.00000 18.36721 18.36721"/>
       </geometry>
     </visual>
   </link>
@@ -235,7 +235,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/offset_bracket.001.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/offset_bracket.001.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -246,7 +246,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/u_bracket.004.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.004.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
     <visual name="l_upper_leg_link">
@@ -255,7 +255,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Hub_torque.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -266,7 +266,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Hub_torque.008.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.008.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -277,7 +277,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Cube.017.dae" scale="2.00000 9.66935 9.66936"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.017.dae" scale="2.00000 9.66935 9.66936"/>
       </geometry>
     </visual>
     <visual name="l_lower_leg_joint">
@@ -286,7 +286,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/u_bracket.001.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.001.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -297,7 +297,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/u_bracket.011.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.011.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -308,7 +308,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Hub_torque.020.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.020.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -319,7 +319,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Cube.005.dae" scale="2.00000 9.66936 9.66936"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.005.dae" scale="2.00000 9.66936 9.66936"/>
       </geometry>
     </visual>
     <visual name="l_upper_leg_joint">
@@ -328,7 +328,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Hub_torque.036.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.036.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -339,27 +339,27 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Hub_torque.002.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.002.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
   <link name="r_ankle_link_k">
     <visual name="r_ankle_joint">
-      <origin rpy="1.58417 -1.57080 0.00000" xyz="29.71100 0.47074 -18.72772"/>
+      <origin rpy="1.57080 -1.57080 0.00000" xyz="29.71465 0.07351 -18.72771"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/u_bracket.012.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.012.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
     <visual name="r_feet_joint_link">
-      <origin rpy="-1.57080 0.00000 1.58417" xyz="17.39096 -0.93638 -19.62160"/>
+      <origin rpy="-1.57080 0.00000 1.57080" xyz="17.37689 -1.16878 -19.62159"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Cube.029.dae" scale="0.77000 0.81000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.029.dae" scale="0.77000 0.81000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -370,7 +370,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/u_bracket.014.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.014.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -381,7 +381,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Cube.021.dae" scale="2.00000 18.36721 18.36721"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.021.dae" scale="2.00000 18.36721 18.36721"/>
       </geometry>
     </visual>
   </link>
@@ -392,7 +392,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/offset_bracket.003.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/offset_bracket.003.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -403,7 +403,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/u_bracket.005.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.005.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
     <visual name="r_upper_leg_link">
@@ -412,7 +412,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Hub_torque.011.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.011.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -423,27 +423,27 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Hub_torque.010.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.010.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
   <link name="r_lower_leg_link_k">
     <visual name="r_ankle_link">
-      <origin rpy="3.14159 1.57080 0.00000" xyz="69.48281 1.16536 -39.57115"/>
+      <origin rpy="-3.14159 1.57080 0.00000" xyz="69.48277 1.16536 -39.57115"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Cube.023.dae" scale="2.00000 9.66936 9.66936"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.023.dae" scale="2.00000 9.66936 9.66936"/>
       </geometry>
     </visual>
     <visual name="r_lower_leg_joint">
-      <origin rpy="1.57080 -1.57080 0.00000" xyz="30.09082 0.06028 -18.78420"/>
+      <origin rpy="1.57080 -1.57080 0.00000" xyz="30.09080 0.06028 -18.78420"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/u_bracket.007.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.007.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -454,7 +454,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/u_bracket.010.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.010.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -465,27 +465,27 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Cube.007.dae" scale="2.00000 9.66936 9.66936"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.007.dae" scale="2.00000 9.66936 9.66936"/>
       </geometry>
     </visual>
   </link>
   <link name="r_upper_leg_link_k">
     <visual name="r_lower_leg_link">
-      <origin rpy="-3.12629 1.57080 0.00000" xyz="69.42911 0.28015 -39.71424"/>
+      <origin rpy="3.08616 1.57080 0.00000" xyz="69.23569 5.18641 -39.71424"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Cube.008.dae" scale="2.00000 9.66936 9.66936"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.008.dae" scale="2.00000 9.66936 9.66936"/>
       </geometry>
     </visual>
     <visual name="r_upper_leg_joint">
-      <origin rpy="-1.57080 0.00000 1.55549" xyz="0.02528 0.03719 -46.91214"/>
+      <origin rpy="-1.57080 0.00000 1.62623" xyz="0.02260 0.03888 -46.91214"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Hub_torque.035.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.035.dae" scale="1.00000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
@@ -496,7 +496,7 @@
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="file:///home/enesisaoglu/rmis_ws/src/rmis_description/meshes/dae/Cube.020.dae" scale="1.01000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.020.dae" scale="1.01000 1.00000 1.00000"/>
       </geometry>
     </visual>
   </link>
