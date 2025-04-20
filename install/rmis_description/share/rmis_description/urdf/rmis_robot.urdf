@@ -1,503 +1,1242 @@
-<robot name="rmis_robot" version="1.0">
+<?xml version="1.0"?>
+<robot name="rmis_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Gazebo Plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+      <robot_namespace>/rmis_robot</robot_namespace>
+      <controller_manager_prefix>controller_manager</controller_manager_prefix>
+    </plugin>
+  </gazebo>
+
+  <!-- JOINT DEFINITIONS -->
   <joint name="head_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="0.00000 -1.57080 0.00000" xyz="-19.46497 -2.05624 35.79721"/>
+    <origin rpy="0.00000 -1.57080 0.00000" xyz="-0.01946497 -0.00205624 0.03579721"/>
     <parent link="neck_link_k"/>
     <child link="head_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="head_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="l_ankle_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="-0.00000 -0.00000 0.00000" xyz="-66.90888 -0.02077 -0.09073"/>
+    <origin rpy="-0.00000 -0.00000 0.00000" xyz="-0.06690888 -0.00002077 -0.00009073"/>
     <parent link="l_lower_leg_link_k"/>
     <child link="l_ankle_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="l_ankle_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="l_arm_link_k1_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="1.57080 -0.00000 3.14159" xyz="0.52979 82.22321 -18.24224"/>
+    <origin rpy="1.57080 -0.00000 3.14159" xyz="0.00052979 0.08222321 -0.01824224"/>
     <parent link="l_shoulder_child_link_k"/>
     <child link="l_arm_link_k1"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="l_arm_link_k1_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="l_arm_link_k2_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="-0.00000 1.57080 0.00000" xyz="20.58876 0.13071 35.95849"/>
+    <origin rpy="-0.00000 1.57080 0.00000" xyz="0.02058876 0.00013071 0.03595849"/>
     <parent link="l_arm_link_k1"/>
     <child link="l_arm_link_k2"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="l_arm_link_k2_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="l_hand_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="-1.57080 1.57080 0.00000" xyz="-68.90010 27.15716 -22.74708"/>
+    <origin rpy="-1.57080 1.57080 0.00000" xyz="-0.06890010 0.02715716 -0.02274708"/>
     <parent link="l_arm_link_k2"/>
     <child link="l_hand_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="l_hand_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="l_hip_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="1.57080 -0.00000 -3.14159" xyz="-9.85686 32.56039 24.17409"/>
+    <origin rpy="1.57080 -0.00000 -3.14159" xyz="-0.00985686 0.03256039 0.02417409"/>
     <parent link="l_leg_base_link_k"/>
     <child link="l_hip_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="l_hip_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="l_leg_base_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="-3.14159 0.00000 -3.09779" xyz="-48.34199 -18.27487 -131.41250"/>
+    <origin rpy="-3.14159 0.00000 -3.09779" xyz="-0.04834199 -0.01827487 -0.13141250"/>
     <parent link="root_link_k"/>
     <child link="l_leg_base_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="l_leg_base_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="l_lower_leg_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="0.00000 0.00000 -0.00000" xyz="-66.85407 0.06718 -1.14178"/>
+    <origin rpy="0.00000 0.00000 -0.00000" xyz="-0.06685407 0.00006718 -0.00114178"/>
     <parent link="l_upper_leg_link_k"/>
     <child link="l_lower_leg_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="l_lower_leg_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="l_shoulder_base_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="0.00000 -1.57080 0.00000" xyz="-97.63426 -11.24756 51.72586"/>
+    <origin rpy="0.00000 -1.57080 0.00000" xyz="-0.09763426 -0.01124756 0.05172586"/>
     <parent link="root_link_k"/>
     <child link="l_shoulder_base_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="l_shoulder_base_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="l_shoulder_child_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="-1.57080 1.57080 0.00000" xyz="0.91104 22.00416 35.45252"/>
+    <origin rpy="-1.57080 1.57080 0.00000" xyz="0.00091104 0.02200416 0.03545252"/>
     <parent link="l_shoulder_base_link_k"/>
     <child link="l_shoulder_child_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="l_shoulder_child_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="l_upper_leg_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="1.57080 0.00000 -1.57080" xyz="-32.91063 45.17123 -29.68048"/>
+    <origin rpy="1.57080 0.00000 -1.57080" xyz="-0.03291063 0.04517123 -0.02968048"/>
     <parent link="l_hip_link_k"/>
     <child link="l_upper_leg_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="l_upper_leg_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="neck_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 83.06138"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.08306138"/>
     <parent link="root_link_k"/>
     <child link="neck_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="neck_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="r_ankle_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="-0.00000 0.00000 -0.00000" xyz="67.37610 -0.01323 -0.03973"/>
+    <origin rpy="-0.00000 0.00000 -0.00000" xyz="0.06737610 -0.00001323 -0.00003973"/>
     <parent link="r_lower_leg_link_k"/>
     <child link="r_ankle_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="r_ankle_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="r_arm_link_k1_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="-1.57080 0.00000 -0.00000" xyz="-0.22886 82.21970 -16.19683"/>
+    <origin rpy="-1.57080 0.00000 -0.00000" xyz="-0.00022886 0.08221970 -0.01619683"/>
     <parent link="r_shoulder_child_link_k"/>
     <child link="r_arm_link_k1"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="r_arm_link_k1_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="r_arm_link_k2_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="-2.28313 -1.57080 -0.85846" xyz="18.95558 0.17086 35.89349"/>
+    <origin rpy="-2.28313 -1.57080 -0.85846" xyz="0.01895558 0.00017086 0.03589349"/>
     <parent link="r_arm_link_k1"/>
     <child link="r_arm_link_k2"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="r_arm_link_k2_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="r_hand_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="-1.57080 -1.57080 0.00000" xyz="68.59900 25.65830 -21.54085"/>
+    <origin rpy="-1.57080 -1.57080 0.00000" xyz="0.06859900 0.02565830 -0.02154085"/>
     <parent link="r_arm_link_k2"/>
     <child link="r_hand_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="r_hand_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="r_hip_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="1.57080 0.00000 0.00000" xyz="-9.72866 -33.20288 24.18766"/>
+    <origin rpy="1.57080 0.00000 0.00000" xyz="-0.00972866 -0.03320288 0.02418766"/>
     <parent link="r_leg_base_link_k"/>
     <child link="r_hip_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="r_hip_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="r_leg_base_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="3.14159 0.00000 0.00000" xyz="48.64802 -18.52139 -131.39921"/>
+    <origin rpy="3.14159 0.00000 0.00000" xyz="0.04864802 -0.01852139 -0.13139921"/>
     <parent link="root_link_k"/>
     <child link="r_leg_base_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="r_leg_base_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="r_lower_leg_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="0.00000 0.00000 0.05543" xyz="66.82124 3.88529 -0.12632"/>
+    <origin rpy="0.00000 0.00000 0.05543" xyz="0.06682124 0.00388529 -0.00012632"/>
     <parent link="r_upper_leg_link_k"/>
     <child link="r_lower_leg_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="r_lower_leg_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="r_shoulder_base_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="-0.00000 1.57080 0.00000" xyz="94.01596 -11.07213 51.94397"/>
+    <origin rpy="-0.00000 1.57080 0.00000" xyz="0.09401596 -0.01107213 0.05194397"/>
     <parent link="root_link_k"/>
     <child link="r_shoulder_base_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="r_shoulder_base_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="r_shoulder_child_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="-1.57080 -1.57080 0.00000" xyz="-0.69766 20.14315 39.18026"/>
+    <origin rpy="-1.57080 -1.57080 0.00000" xyz="-0.00069766 0.02014315 0.03918026"/>
     <parent link="r_shoulder_base_link_k"/>
     <child link="r_shoulder_child_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="r_shoulder_child_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
   <joint name="r_upper_leg_link_k_joint" type="revolute">
-    <dynamics damping="5.00000"/>
+    <dynamics damping="10.0" friction="0.5"/>
     <limit lower="-3.14000" upper="3.14000" effort="0.85000" velocity="6.30000"/>
-    <origin rpy="1.57080 0.00000 1.57080" xyz="31.79766 45.01670 -30.11760"/>
+    <origin rpy="1.57080 0.00000 1.57080" xyz="0.03179766 0.04501670 -0.03011760"/>
     <parent link="r_hip_link_k"/>
     <child link="r_upper_leg_link_k"/>
     <axis xyz="0.00000 0.00000 1.00000"/>
   </joint>
+  <gazebo reference="r_upper_leg_link_k_joint">
+    <initial_position>0.0</initial_position>
+  </gazebo>
+
+  <!-- LINK DEFINITIONS WITH COLLISION AND INERTIAL -->
   <link name="head_link_k">
     <visual name="head_joint">
-      <origin rpy="-1.57080 -1.57080 0.00000" xyz="22.93982 43.20002 -19.46497"/>
+      <origin rpy="-1.57080 -1.57080 0.00000" xyz="0.02293982 0.04320002 -0.01946497"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/27-1a.001.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/27-1a.001.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="head_collision">
+      <origin rpy="-1.57080 -1.57080 0.00000" xyz="0.02293982 0.04320002 -0.01946497"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="head_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="l_ankle_link_k">
     <visual name="l_ankle_joint">
-      <origin rpy="1.57080 1.57080 0.00000" xyz="-30.10730 0.15002 -18.76106"/>
+      <origin rpy="1.57080 1.57080 0.00000" xyz="-0.03010730 0.00015002 -0.01876106"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/u_bracket.003.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.003.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
     <visual name="l_feet_link">
-      <origin rpy="1.57080 -0.00000 1.57080" xyz="-17.76954 -1.09226 -19.15250"/>
+      <origin rpy="1.57080 -0.00000 1.57080" xyz="-0.01776954 -0.00109226 -0.01915250"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Cube.001.dae" scale="0.77000 0.81000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.001.dae" scale="0.00077 0.00081 0.001"/>
       </geometry>
     </visual>
+    <collision name="l_ankle_collision">
+      <origin rpy="1.57080 1.57080 0.00000" xyz="-0.03010730 0.00015002 -0.01876106"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <collision name="l_feet_collision">
+      <origin rpy="1.57080 -0.00000 1.57080" xyz="-0.01776954 -0.00109226 -0.01915250"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="l_ankle_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="l_arm_link_k1">
     <visual name="l_arm_joint">
-      <origin rpy="1.57080 0.00000 0.00000" xyz="0.28258 0.50026 5.98672"/>
+      <origin rpy="1.57080 0.00000 0.00000" xyz="0.00028258 0.00050026 0.00598672"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/u_bracket.015.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.015.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="l_arm_collision">
+      <origin rpy="1.57080 0.00000 0.00000" xyz="0.00028258 0.00050026 0.00598672"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="l_arm_link_k1">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="l_arm_link_k2">
     <visual name="l_arm_link">
-      <origin rpy="-3.14159 -1.57080 0.00000" xyz="-68.72556 2.26477 -5.82007"/>
+      <origin rpy="-3.14159 -1.57080 0.00000" xyz="-0.06872556 0.00226477 -0.00582007"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Cube.019.dae" scale="2.00000 18.36721 18.36721"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.019.dae" scale="0.002 0.01836721 0.01836721"/>
       </geometry>
     </visual>
+    <collision name="l_arm_link_collision">
+      <origin rpy="-3.14159 -1.57080 0.00000" xyz="-0.06872556 0.00226477 -0.00582007"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="l_arm_link_k2">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="l_hand_link_k">
     <visual name="l_hand_joint">
-      <origin rpy="-3.14159 0.00000 0.47600" xyz="-0.31551 -0.17459 -12.99447"/>
+      <origin rpy="-3.14159 0.00000 0.47600" xyz="-0.00031551 -0.00017459 -0.01299447"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/offset_bracket.001.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/offset_bracket.001.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="l_hand_collision">
+      <origin rpy="-3.14159 0.00000 0.47600" xyz="-0.00031551 -0.00017459 -0.01299447"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="l_hand_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="l_hip_link_k">
     <visual name="l_hip_joint">
-      <origin rpy="-3.14159 -1.57080 0.00000" xyz="0.08015 30.04157 -20.11585"/>
+      <origin rpy="-3.14159 -1.57080 0.00000" xyz="0.00008015 0.03004157 -0.02011585"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/u_bracket.004.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.004.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
     <visual name="l_upper_leg_link">
-      <origin rpy="-2.98019 -1.57080 1.40939" xyz="-38.81696 45.14157 -29.68406"/>
+      <origin rpy="-2.98019 -1.57080 1.40939" xyz="-0.03881696 0.04514157 -0.02968406"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="l_hip_collision">
+      <origin rpy="-3.14159 -1.57080 0.00000" xyz="0.00008015 0.03004157 -0.02011585"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <collision name="l_upper_leg_collision">
+      <origin rpy="-2.98019 -1.57080 1.40939" xyz="-0.03881696 0.04514157 -0.02968406"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="l_hip_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="l_leg_base_link_k">
     <visual name="l_hip_link">
-      <origin rpy="3.14159 -0.00000 0.00000" xyz="-9.83987 38.47630 11.55820"/>
+      <origin rpy="3.14159 -0.00000 0.00000" xyz="-0.00983987 0.03847630 0.01155820"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.008.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.008.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="l_leg_base_collision">
+      <origin rpy="3.14159 -0.00000 0.00000" xyz="-0.00983987 0.03847630 0.01155820"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.002"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="l_leg_base_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="l_lower_leg_link_k">
     <visual name="l_ankle_link">
-      <origin rpy="0.00000 1.57080 0.00000" xyz="-69.40820 1.23432 -39.65553"/>
+      <origin rpy="0.00000 1.57080 0.00000" xyz="-0.06940820 0.00123432 -0.03965553"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Cube.017.dae" scale="2.00000 9.66935 9.66936"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.017.dae" scale="0.002 0.00966935 0.00966936"/>
       </geometry>
     </visual>
     <visual name="l_lower_leg_joint">
-      <origin rpy="1.57080 1.57080 0.00000" xyz="-30.01623 0.12925 -18.85181"/>
+      <origin rpy="1.57080 1.57080 0.00000" xyz="-0.03001623 0.00012925 -0.01885181"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/u_bracket.001.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.001.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="l_ankle_link_collision">
+      <origin rpy="0.00000 1.57080 0.00000" xyz="-0.06940820 0.00123432 -0.03965553"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <collision name="l_lower_leg_collision">
+      <origin rpy="1.57080 1.57080 0.00000" xyz="-0.03001623 0.00012925 -0.01885181"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="l_lower_leg_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="l_shoulder_base_link_k">
     <visual name="l_shoulder_joint">
-      <origin rpy="1.57080 -0.00000 1.57080" xyz="0.69714 0.05622 5.62769"/>
+      <origin rpy="1.57080 -0.00000 1.57080" xyz="0.00069714 0.00005622 0.00562769"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/u_bracket.011.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.011.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="l_shoulder_collision">
+      <origin rpy="1.57080 -0.00000 1.57080" xyz="0.00069714 0.00005622 0.00562769"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="l_shoulder_base_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="l_shoulder_child_link_k">
     <visual name="l_shoulder_link">
-      <origin rpy="-1.57080 0.00000 -1.57080" xyz="-0.00134 0.04804 3.99708"/>
+      <origin rpy="-1.57080 0.00000 -1.57080" xyz="-0.00000134 0.00004804 0.00399708"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.020.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.020.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="l_shoulder_child_collision">
+      <origin rpy="-1.57080 0.00000 -1.57080" xyz="-0.00000134 0.00004804 0.00399708"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="l_shoulder_child_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="l_upper_leg_link_k">
     <visual name="l_lower_leg_link">
-      <origin rpy="0.00000 1.57080 0.00000" xyz="-69.26234 1.30150 -40.79734"/>
+      <origin rpy="0.00000 1.57080 0.00000" xyz="-0.06926234 0.00130150 -0.04079734"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Cube.005.dae" scale="2.00000 9.66936 9.66936"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.005.dae" scale="0.002 0.00966936 0.00966936"/>
       </geometry>
     </visual>
     <visual name="l_upper_leg_joint">
-      <origin rpy="-1.57080 0.00000 -1.57080" xyz="0.12963 -0.00358 -47.96052"/>
+      <origin rpy="-1.57080 0.00000 -1.57080" xyz="0.00012963 -0.00000358 -0.04796052"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.036.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.036.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="l_lower_leg_collision">
+      <origin rpy="0.00000 1.57080 0.00000" xyz="-0.06926234 0.00130150 -0.04079734"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <collision name="l_upper_leg_collision">
+      <origin rpy="-1.57080 0.00000 -1.57080" xyz="0.00012963 -0.00000358 -0.04796052"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="l_upper_leg_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="neck_link_k">
     <visual name="neck_joint">
-      <origin rpy="-1.57080 -1.57080 0.00000" xyz="-3.98343 -8.30060 45.70511"/>
+      <origin rpy="-1.57080 -1.57080 0.00000" xyz="-0.00398343 -0.00830060 0.04570511"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.002.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.002.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="neck_collision">
+      <origin rpy="-1.57080 -1.57080 0.00000" xyz="-0.00398343 -0.00830060 0.04570511"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="neck_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="r_ankle_link_k">
     <visual name="r_ankle_joint">
-      <origin rpy="1.57080 -1.57080 0.00000" xyz="29.71465 0.07351 -18.72771"/>
+      <origin rpy="1.57080 -1.57080 0.00000" xyz="0.02971465 0.00007351 -0.01872771"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/u_bracket.012.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.012.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
     <visual name="r_feet_joint_link">
-      <origin rpy="-1.57080 0.00000 1.57080" xyz="17.37689 -1.16878 -19.62159"/>
+      <origin rpy="-1.57080 0.00000 1.57080" xyz="0.01737689 -0.00116878 -0.01962159"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Cube.029.dae" scale="0.77000 0.81000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.029.dae" scale="0.00077 0.00081 0.001"/>
       </geometry>
     </visual>
+    <collision name="r_ankle_collision">
+      <origin rpy="1.57080 -1.57080 0.00000" xyz="0.02971465 0.00007351 -0.01872771"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <collision name="r_feet_collision">
+      <origin rpy="-1.57080 0.00000 1.57080" xyz="0.01737689 -0.00116878 -0.01962159"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="r_ankle_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="r_arm_link_k1">
     <visual name="r_arm_joint">
-      <origin rpy="1.57080 -0.00000 3.14159" xyz="0.13979 -0.13156 6.04999"/>
+      <origin rpy="1.57080 -0.00000 3.14159" xyz="0.00013979 -0.00013156 0.00604999"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/u_bracket.014.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.014.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="r_arm_collision">
+      <origin rpy="1.57080 -0.00000 3.14159" xyz="0.00013979 -0.00013156 0.00604999"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="r_arm_link_k1">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="r_arm_link_k2">
     <visual name="r_arm_link">
-      <origin rpy="-0.00000 -1.57080 0.00000" xyz="92.06708 5.14913 -6.69152"/>
+      <origin rpy="-0.00000 -1.57080 0.00000" xyz="0.09206708 0.00514913 -0.00669152"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Cube.021.dae" scale="2.00000 18.36721 18.36721"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.021.dae" scale="0.002 0.01836721 0.01836721"/>
       </geometry>
     </visual>
+    <collision name="r_arm_link_collision">
+      <origin rpy="-0.00000 -1.57080 0.00000" xyz="0.09206708 0.00514913 -0.00669152"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="r_arm_link_k2">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="r_hand_link_k">
     <visual name="r_hand_joint">
-      <origin rpy="-0.00000 -0.00000 2.68714" xyz="0.38062 0.19957 -36.13983"/>
+      <origin rpy="-0.00000 -0.00000 2.68714" xyz="0.00038062 0.00019957 -0.03613983"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/offset_bracket.003.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/offset_bracket.003.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="r_hand_collision">
+      <origin rpy="-0.00000 -0.00000 2.68714" xyz="0.00038062 0.00019957 -0.03613983"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="r_hand_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="r_hip_link_k">
     <visual name="r_hip_joint">
-      <origin rpy="-3.14159 -1.57080 0.00000" xyz="-0.11002 30.04136 -20.51182"/>
+      <origin rpy="-3.14159 -1.57080 0.00000" xyz="-0.00011002 0.03004136 -0.02051182"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/u_bracket.005.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.005.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
     <visual name="r_upper_leg_link">
-      <origin rpy="0.07469 -1.57080 1.49610" xyz="38.78710 32.48986 -30.08003"/>
+      <origin rpy="0.07469 -1.57080 1.49610" xyz="0.03878710 0.03248986 -0.03008003"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.011.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.011.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="r_hip_collision">
+      <origin rpy="-3.14159 -1.57080 0.00000" xyz="-0.00011002 0.03004136 -0.02051182"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <collision name="r_upper_leg_collision">
+      <origin rpy="0.07469 -1.57080 1.49610" xyz="0.03878710 0.03248986 -0.03008003"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="r_hip_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="r_leg_base_link_k">
     <visual name="r_hip_link">
-      <origin rpy="3.14159 0.00000 3.14159" xyz="9.18341 -38.72283 11.98324"/>
+      <origin rpy="3.14159 0.00000 3.14159" xyz="0.00918341 -0.03872283 0.01198324"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.010.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.010.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="r_leg_base_collision">
+      <origin rpy="3.14159 0.00000 3.14159" xyz="0.00918341 -0.03872283 0.01198324"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.002"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="r_leg_base_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="r_lower_leg_link_k">
     <visual name="r_ankle_link">
-      <origin rpy="-3.14159 1.57080 0.00000" xyz="69.48277 1.16536 -39.57115"/>
+      <origin rpy="-3.14159 1.57080 0.00000" xyz="0.06948277 0.00116536 -0.03957115"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Cube.023.dae" scale="2.00000 9.66936 9.66936"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.023.dae" scale="0.002 0.00966936 0.00966936"/>
       </geometry>
     </visual>
     <visual name="r_lower_leg_joint">
-      <origin rpy="1.57080 -1.57080 0.00000" xyz="30.09080 0.06028 -18.78420"/>
+      <origin rpy="1.57080 -1.57080 0.00000" xyz="0.03009080 0.00006028 -0.01878420"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/u_bracket.007.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.007.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="r_ankle_link_collision">
+      <origin rpy="-3.14159 1.57080 0.00000" xyz="0.06948277 0.00116536 -0.03957115"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <collision name="r_lower_leg_collision">
+      <origin rpy="1.57080 -1.57080 0.00000" xyz="0.03009080 0.00006028 -0.01878420"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="r_lower_leg_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="r_shoulder_base_link_k">
     <visual name="r_shoulder_joint">
-      <origin rpy="1.57080 -0.00000 -1.57080" xyz="-0.47906 -0.12808 9.40137"/>
+      <origin rpy="1.57080 -0.00000 -1.57080" xyz="-0.00047906 -0.00012808 0.00940137"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/u_bracket.010.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/u_bracket.010.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="r_shoulder_collision">
+      <origin rpy="1.57080 -0.00000 -1.57080" xyz="-0.00047906 -0.00012808 0.00940137"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="r_shoulder_base_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="r_shoulder_child_link_k">
     <visual name="r_shoulder_link">
-      <origin rpy="-1.57080 1.57080 0.00000" xyz="1.23528 -2.24133 -41.31914"/>
+      <origin rpy="-1.57080 1.57080 0.00000" xyz="0.00123528 -0.00224133 -0.04131914"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Cube.007.dae" scale="2.00000 9.66936 9.66936"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.007.dae" scale="0.002 0.00966936 0.00966936"/>
       </geometry>
     </visual>
+    <collision name="r_shoulder_child_collision">
+      <origin rpy="-1.57080 1.57080 0.00000" xyz="0.00123528 -0.00224133 -0.04131914"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="r_shoulder_child_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="r_upper_leg_link_k">
     <visual name="r_lower_leg_link">
-      <origin rpy="3.08616 1.57080 0.00000" xyz="69.23569 5.18641 -39.71424"/>
+      <origin rpy="3.08616 1.57080 0.00000" xyz="0.06923569 0.00518641 -0.03971424"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Cube.008.dae" scale="2.00000 9.66936 9.66936"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.008.dae" scale="0.002 0.00966936 0.00966936"/>
       </geometry>
     </visual>
     <visual name="r_upper_leg_joint">
-      <origin rpy="-1.57080 0.00000 1.62623" xyz="0.02260 0.03888 -46.91214"/>
+      <origin rpy="-1.57080 0.00000 1.62623" xyz="0.00002260 0.00003888 -0.04691214"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.035.dae" scale="1.00000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Hub_torque.035.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="r_lower_leg_collision">
+      <origin rpy="3.08616 1.57080 0.00000" xyz="0.06923569 0.00518641 -0.03971424"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <collision name="r_upper_leg_collision">
+      <origin rpy="-1.57080 0.00000 1.62623" xyz="0.00002260 0.00003888 -0.04691214"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="r_upper_leg_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
   <link name="root_link_k">
     <visual name="upper_body_link">
-      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00003"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000003"/>
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
       <geometry>
-        <mesh filename="package://rmis_description/meshes/dae/Cube.020.dae" scale="1.01000 1.00000 1.00000"/>
+        <mesh filename="package://rmis_description/meshes/dae/Cube.020.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision name="upper_body_collision">
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000003"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0.6</mu>
+            <mu2>0.6</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.005"/>
+      <inertia ixx="1e-4" ixy="0.0" ixz="0.0" iyy="1e-4" iyz="0.0" izz="1e-4"/>
+    </inertial>
   </link>
+  <gazebo reference="root_link_k">
+    <material>Gazebo/White</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
 </robot>

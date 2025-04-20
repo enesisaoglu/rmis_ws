@@ -1,4 +1,0 @@
-Invoking command in '/home/enesisaoglu/rmis_ws/build/rmis_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/enesisaoglu/rmis_ws/build/rmis_description -- -j22 -l22
-Invoked command in '/home/enesisaoglu/rmis_ws/build/rmis_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/enesisaoglu/rmis_ws/build/rmis_description -- -j22 -l22
-Invoking command in '/home/enesisaoglu/rmis_ws/build/rmis_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/enesisaoglu/rmis_ws/build/rmis_description
-Invoked command in '/home/enesisaoglu/rmis_ws/build/rmis_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/enesisaoglu/rmis_ws/build/rmis_description

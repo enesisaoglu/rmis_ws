@@ -1,0 +1,21 @@
+running egg_info
+writing ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/PKG-INFO
+writing dependency_links to ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/dependency_links.txt
+writing entry points to ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/entry_points.txt
+writing requirements to ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/requires.txt
+writing top-level names to ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/top_level.txt
+reading manifest file '../../build/rmis_data_publisher/rmis_data_publisher.egg-info/SOURCES.txt'
+writing manifest file '../../build/rmis_data_publisher/rmis_data_publisher.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+creating /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/share/rmis_data_publisher/launch
+copying launch/rmis_data_publisher_with_bridge.launch.py -> /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/share/rmis_data_publisher/launch
+running install_egg_info
+removing '/home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/python3.10/site-packages/rmis_data_publisher-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/rmis_data_publisher/rmis_data_publisher.egg-info to /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/python3.10/site-packages/rmis_data_publisher-0.0.0-py3.10.egg-info
+running install_scripts
+Installing rmis_publisher script to /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/rmis_data_publisher
+writing list of installed files to '/home/enesisaoglu/rmis_ws/build/rmis_data_publisher/install.log'

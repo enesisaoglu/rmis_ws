@@ -1,0 +1,29 @@
+running egg_info
+creating ../../build/rmis_data_publisher/rmis_data_publisher.egg-info
+writing ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/PKG-INFO
+writing dependency_links to ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/dependency_links.txt
+writing entry points to ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/entry_points.txt
+writing requirements to ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/requires.txt
+writing top-level names to ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/top_level.txt
+writing manifest file '../../build/rmis_data_publisher/rmis_data_publisher.egg-info/SOURCES.txt'
+reading manifest file '../../build/rmis_data_publisher/rmis_data_publisher.egg-info/SOURCES.txt'
+writing manifest file '../../build/rmis_data_publisher/rmis_data_publisher.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/enesisaoglu/rmis_ws/build/rmis_data_publisher/build
+creating /home/enesisaoglu/rmis_ws/build/rmis_data_publisher/build/lib
+creating /home/enesisaoglu/rmis_ws/build/rmis_data_publisher/build/lib/rmis_data_publisher
+copying rmis_data_publisher/publisher_node.py -> /home/enesisaoglu/rmis_ws/build/rmis_data_publisher/build/lib/rmis_data_publisher
+copying rmis_data_publisher/__init__.py -> /home/enesisaoglu/rmis_ws/build/rmis_data_publisher/build/lib/rmis_data_publisher
+running install
+running install_lib
+creating /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/python3.10/site-packages/rmis_data_publisher
+copying /home/enesisaoglu/rmis_ws/build/rmis_data_publisher/build/lib/rmis_data_publisher/publisher_node.py -> /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/python3.10/site-packages/rmis_data_publisher
+copying /home/enesisaoglu/rmis_ws/build/rmis_data_publisher/build/lib/rmis_data_publisher/__init__.py -> /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/python3.10/site-packages/rmis_data_publisher
+byte-compiling /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/python3.10/site-packages/rmis_data_publisher/publisher_node.py to publisher_node.cpython-310.pyc
+byte-compiling /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/python3.10/site-packages/rmis_data_publisher/__init__.py to __init__.cpython-310.pyc
+running install_egg_info
+Copying ../../build/rmis_data_publisher/rmis_data_publisher.egg-info to /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/python3.10/site-packages/rmis_data_publisher-0.0.0-py3.10.egg-info
+running install_scripts
+Installing rmis_publisher script to /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/rmis_data_publisher
+writing list of installed files to '/home/enesisaoglu/rmis_ws/build/rmis_data_publisher/install.log'

@@ -1,4 +1,5 @@
 /home/enesisaoglu/rmis_ws/install/rmis_description/share/rmis_description/launch/display.launch.py
+/home/enesisaoglu/rmis_ws/install/rmis_description/share/rmis_description/urdf/test_mesh.urdf
 /home/enesisaoglu/rmis_ws/install/rmis_description/share/rmis_description/urdf/rmis_robot.urdf
 /home/enesisaoglu/rmis_ws/install/rmis_description/share/rmis_description/meshes/dae/Hub_torque.020.dae
 /home/enesisaoglu/rmis_ws/install/rmis_description/share/rmis_description/meshes/dae/Hub_torque.011.dae_history.log
@@ -77,3 +78,4 @@
 /home/enesisaoglu/rmis_ws/install/rmis_description/share/rmis_description/cmake/rmis_descriptionConfig.cmake
 /home/enesisaoglu/rmis_ws/install/rmis_description/share/rmis_description/cmake/rmis_descriptionConfig-version.cmake
 /home/enesisaoglu/rmis_ws/install/rmis_description/share/rmis_description/package.xml
+/home/enesisaoglu/rmis_ws/install/rmis_description/share/rmis_description/worlds/empty.sdf

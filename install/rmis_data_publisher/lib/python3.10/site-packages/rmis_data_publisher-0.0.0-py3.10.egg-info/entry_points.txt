@@ -1,0 +1,3 @@
+[console_scripts]
+topic_publisher = rmis_data_publisher.topic_publisher:main
+

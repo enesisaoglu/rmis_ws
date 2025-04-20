@@ -1,0 +1,22 @@
+[0.335s] Invoking command in '/home/enesisaoglu/rmis_ws/src/rmis_data_publisher': PYTHONPATH=/home/enesisaoglu/rmis_ws/build/rmis_data_publisher/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rmis_data_publisher build --build-base /home/enesisaoglu/rmis_ws/build/rmis_data_publisher/build install --record /home/enesisaoglu/rmis_ws/build/rmis_data_publisher/install.log --single-version-externally-managed install_data
+[0.461s] running egg_info
+[0.461s] writing ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/PKG-INFO
+[0.461s] writing dependency_links to ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/dependency_links.txt
+[0.461s] writing entry points to ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/entry_points.txt
+[0.461s] writing requirements to ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/requires.txt
+[0.462s] writing top-level names to ../../build/rmis_data_publisher/rmis_data_publisher.egg-info/top_level.txt
+[0.462s] reading manifest file '../../build/rmis_data_publisher/rmis_data_publisher.egg-info/SOURCES.txt'
+[0.463s] writing manifest file '../../build/rmis_data_publisher/rmis_data_publisher.egg-info/SOURCES.txt'
+[0.463s] running build
+[0.463s] running build_py
+[0.463s] running install
+[0.463s] running install_lib
+[0.464s] running install_data
+[0.464s] copying launch/rmis_data_publisher_with_bridge.launch.py -> /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/share/rmis_data_publisher/launch
+[0.464s] running install_egg_info
+[0.465s] removing '/home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/python3.10/site-packages/rmis_data_publisher-0.0.0-py3.10.egg-info' (and everything under it)
+[0.465s] Copying ../../build/rmis_data_publisher/rmis_data_publisher.egg-info to /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/python3.10/site-packages/rmis_data_publisher-0.0.0-py3.10.egg-info
+[0.465s] running install_scripts
+[0.476s] Installing rmis_publisher script to /home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/rmis_data_publisher
+[0.476s] writing list of installed files to '/home/enesisaoglu/rmis_ws/build/rmis_data_publisher/install.log'
+[0.489s] Invoked command in '/home/enesisaoglu/rmis_ws/src/rmis_data_publisher' returned '0': PYTHONPATH=/home/enesisaoglu/rmis_ws/build/rmis_data_publisher/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/enesisaoglu/rmis_ws/install/rmis_data_publisher/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rmis_data_publisher build --build-base /home/enesisaoglu/rmis_ws/build/rmis_data_publisher/build install --record /home/enesisaoglu/rmis_ws/build/rmis_data_publisher/install.log --single-version-externally-managed install_data
