@@ -44,7 +44,7 @@ RMIS is a humanoid robot project designed to process skeletal data from a Kinect
    ros2 launch rmis_description display.launch.py
  ![rmis_rviz](https://github.com/user-attachments/assets/7640da43-6544-4a3b-98e2-9ecd17414d78)
 
-2. **Connect to the RMIS web interface (optional):
+2. **Connect to the RMIS web interface (optional):**
 To use the graphical user interface for interacting with the RMIS robot, follow the instructions in the rmis_interface_ws repository to set up and run the web server. Then, in this workspace, run the following command to start the rosbridge_server and publish messages to /my_topic for the web interface:
    ```bash
    ros2 launch rmis_data_publisher data_publisher_launch.py
