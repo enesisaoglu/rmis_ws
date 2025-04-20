@@ -10,12 +10,13 @@ RMIS is a humanoid robot project designed to process skeletal data from a Kinect
   - Loads the URDF model (`rmis_robot.urdf`) from the `rmis_description` package.
   - Runs `robot_state_publisher` to publish the robot’s state.
   - Includes `joint_state_publisher` (headless) or `joint_state_publisher_gui` (with GUI) to control joint states, configurable via a `gui` launch argument.
-  - Launches RViz for visualization.
+  - Launches RViz and Gazebo for visualization.
 
 ## Prerequisites
 - **ROS2 Humble** (tested on Ubuntu 22.04)
 - **Blender** (with Phobos plugin for URDF export, used to design the robot model and export it as URDF with DAE format references)
-
+- **rosbridge_server** (for web interface, install with `sudo apt install ros-humble-rosbridge-server`)
+  
 ## Installation
 1. **Set up ROS2 Humble:**
    ```bash
@@ -42,7 +43,13 @@ RMIS is a humanoid robot project designed to process skeletal data from a Kinect
    ```bash
    ros2 launch rmis_description display.launch.py
  ![rmis_rviz](https://github.com/user-attachments/assets/7640da43-6544-4a3b-98e2-9ecd17414d78)
- 
+
+2. **Connect to the RMIS web interface (optional):
+To use the graphical user interface for interacting with the RMIS robot, follow the instructions in the rmis_interface_ws repository to set up and run the web server. Then, in this workspace, run the following command to start the rosbridge_server and publish messages to /my_topic for the web interface:
+   ```bash
+   ros2 launch rmis_data_publisher data_publisher_launch.py
+
+   
 ## Contributing
 Feel free to fork this project, submit issues, or send pull requests. All contributions are welcome!
 
