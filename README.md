@@ -28,7 +28,7 @@ RMIS is a humanoid robot project designed to process skeletal data from a Kinect
    ```bash
     mkdir -p ~/rmis_ws/src
     cd ~/rmis_ws/src
-    git clone [git@github.com:enesisaoglu/rmis_ws.git](https://github.com/enesisaoglu/rmis_ws.git)
+    git clone https://github.com/enesisaoglu/rmis_ws.git
 
 3. **Install dependencies and build:**
    ```bash
