@@ -1,0 +1,3 @@
+Instantiated with filepath=None->None, scale=[0.10000037401914597, 0.10000036656856537, 0.10000036656856537], mesh=<bpy_struct, Mesh("base") at 0x7f51f502c308>, meshname=base, material=None, mesh_orientation=None, {}
+->trying export of <bpy_struct, Mesh("base") at 0x7f51f502c308> to /home/semih/Blender/Urdf/rmis/meshes/stl/base.stl
+->wrote stl to /home/semih/Blender/Urdf/rmis/meshes/stl/base.stl from bpy_types.Mesh
