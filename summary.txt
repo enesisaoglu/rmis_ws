@@ -1,0 +1,48 @@
+1- kurulum: 
+(git clone ) 
+cd ~/rmis_ws
+rm -rf build install log
+colcon build --packages-select skeleton_image_publisher
+source install/setup.bash
+2- kutuphaneler 
+libfreenect2
+sudo apt-get install libfreenect2-dev
+git clone https://github.com/YuLiHN/kinect2_ros2
+cd kinect2_ros2
+rosdep install -r --from-paths 
+
+Before launching the file kinect2_bridge.launch.py, make sure it is specified inside that one the serial number for the kinect2 camera to be accessed as shown below under the key-pair parameters variable defined inside the 'sensor' key:
+
+parameters=[    {'base_name': 'kinect2',
+                'sensor': '007266745247', 
+                ...(continue parameters definition)
+ros2 launch kinect2_bridge kinect2_bridge.launch.py
+
+openni2 ve nite2 kurulum
+sudo apt update
+sudo apt install git cmake build-essential libusb-1.0-0-dev libudev-dev freeglut3-dev
+git clone https://github.com/OpenNI/OpenNI2.git
+cd OpenNI2
+make
+sudo cp Packaging/OpenNI2/Drivers/orbbec.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+
+cd ~
+mkdir nite2 && cd nite2
+wget https://s3.amazonaws.com/structure.sensor/NiTE-Linux-x64-2.2.tar.zip
+unzip NiTE-Linux-x64-2.2.tar.zip
+tar -xvf NiTE-Linux-x64-2.2.tar.bz2
+
+3- skeleton tracking
+/home/enesisaoglu/libfreenect2/build/lib/libfreenect2-openni2.so ve  /home/enesisaoglu/libfreenect2/build/lib/libfreenect2-openni2.so.0 dosyalarini kopyala ve /home/enesisaoglu/NiTE-Linux-x64-2.2/Samples/Bin/OpenNI2/Drivers/ icine yapistir.
+             
+/home/enesisaoglu/NiTE-Linux-x64-2.2/Samples/Bin/ bu dosya icinde terminal calistir. ve sunu yaz: ./UserViewer
+
+kendi paketimizi kullanma
+
+cmakelist.txt icindeki directory ve library konumlarini kendine gore ayarla
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/enesisaoglu/NiTE-Linux-x64-2.2/Redist
+echo 2048 | sudo tee /sys/module/usbcore/parameters/usbfs_memory_mb
+ros2 run skeleton_image_publisher skeleton_image_publisher
