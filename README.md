@@ -30,9 +30,8 @@ RMIS (Robot Motion Imitation System) is an open-source humanoid robot project de
 
 ## Installation
 1. **Set up ROS2 Humble**:
+   Ensure ROS2 Humble is installed. Refer to the [official ROS2 Humble installation guide](https://docs.ros.org/en/humble/Installation.html) if not already set up.
    ```bash
-   sudo apt update
-   sudo apt install ros-humble-desktop
    source /opt/ros/humble/setup.bash
 2. **Clone the Repository**:
    ```bash
@@ -77,5 +76,37 @@ RMIS (Robot Motion Imitation System) is an open-source humanoid robot project de
    - Start the Flask-based web interface for monitoring and control:
       ```bash
       ros2 launch rmis_data_publisher data_publisher_launch.py
+     ```
+    - Access the interface at `http://localhost:5000` in a web browser.
+    - Features:
+       - Real-time MediaPipe-annotated video feed (`/mediapipe_feed`).
+       - Robot camera feed (placeholder or real feed if connected).
+       - Sliders for manual joint control (e.g., shoulder, elbow, wrist) when enabled.
+       - Start/Stop buttons to toggle motion imitation.
+       - Displays current joint angles (calibrated with +90° offset).
+    - Note: Ensure `rosbridge_server` is installed for WebSocket communication.
+## Project Structure  
+  - `rmis` Package:
+     - Contains the URDF (`rmisurdf.urdf`), world file (`stable.world`), and controller configurations (`controllers.yaml`).
+     - Launch file (`gazebo.launch.py`) for Gazebo and RViz.
+  - `kinect2_bridge` Package:
+     - Interfaces with the Kinect camera to publish RGB and depth images ( `/kinect2/qhd/image_color/compressed`, `/kinect2/qhd/image_depth_rect/compressed`).
+  - `pose_estimation` Package:
+     - `image_processing_node.py`: Processes Kinect images with MediaPipe for skeletal tracking and 3D joint estimation.
+     - `rmis_mimic_node.py`: Computes IK for robot joints based on pose data.
+     - Launch file (`pose_estimation_launch.py`) to run both nodes.
+   - `robot_control_ui` Package:
+     - `flask_node.py`: Runs a Flask server with a web interface for visualization and control.
+     -  `index.html`: Provides a UI with video feeds, joint sliders, and start/stop controls.
+     -  Launch file (`robot_control_ui_launch.py) to start the Flask server.
 
-## Project Structure 
+## Contributing
+Contributions are welcome!
+
+## License
+This project is licensed under the MIT License.
+
+## Acknowledgments
+ - Developed by Enes Isaoglu and Semih Apaydin as a capstone project.
+ - Built with ROS2 Humble, MediaPipe, IKPy, and Blender with the Phobos plugin.
+ - Kinect integration based on the kinect2_ros2 package.
