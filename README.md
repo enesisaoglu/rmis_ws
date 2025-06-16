@@ -1,62 +1,36 @@
-# RMIS 
+# RMIS
 
 ## Overview
-RMIS is a humanoid robot project designed to process skeletal data from a Kinect camera and move its motors based on human movements. This is an open-source project developed for a capstone project, built using ROS2 Humble, Blender, and a Kinect camera.
+RMIS (Robot Motion Imitation System) is an open-source humanoid robot project designed to mimic human movements by processing skeletal data from a Kinect camera using MediaPipe for pose estimation. The system captures RGB and depth data from the Kinect, estimates 3D joint positions, computes inverse kinematics (IK) for a humanoid robot, and visualizes the results in RViz and Gazebo. A Flask-based web interface allows real-time monitoring and control of the robot’s joint states. Developed as a capstone project, RMIS leverages ROS2 Humble, Blender, MediaPipe, and IKPy.
+
+## Features
+- **Robot Model**: Designed in Blender and exported as a URDF with STL models using the Phobos plugin.
+- **Pose Estimation**: Uses MediaPipe to track human skeletal joints (nose, wrists, feet) from Kinect RGB images, combined with depth data for 3D positioning.
+- **Inverse Kinematics**: Computes joint angles for the robot’s arms, legs, and head using IKPy, enabling human motion imitation.
+- **Visualization**: Displays the robot model and joint movements in RViz and Gazebo via a custom launch file.
+- **Web Interface**: A Flask-based UI (`robot_control_ui`) provides real-time visualization of MediaPipe-annotated images, robot camera feed, and manual joint control via sliders.
+- **ROS2 Integration**: Built on ROS2 Humble, with packages for Kinect integration, pose estimation, and UI control.
 
 ## Current Status
-- Robot model designed in Blender and exported as URDF using Phobos, with DAE format models referenced within the URDF.
-- Kinect camera integrated into the ROS2 workspace following the instructions from [kinect2_ros2](https://gitioc.upc.edu/labs/kinect2_ros2/-/blob/main/README.md?ref_type=heads). A working launch file is included in the `launch/` directory.
-- A custom launch file (`display.launch.py`) has been created to visualize the robot’s URDF in RViz and enable joint movement. This launch file:
-  - Loads the URDF model (`rmis_robot.urdf`) from the `rmis_description` package.
-  - Runs `robot_state_publisher` to publish the robot’s state.
-  - Includes `joint_state_publisher` (headless) or `joint_state_publisher_gui` (with GUI) to control joint states, configurable via a `gui` launch argument.
-  - Launches RViz and Gazebo for visualization.
+- **Robot Model**: URDF (`rmisurdf.urdf`) defined in the `rmis` package, with STL models and Gazebo-compatible configurations.
+- **Kinect Integration**: Uses the `kinect2_bridge` package to process RGB and depth data at QHD resolution (30 FPS, CPU-based depth method).
+- **Pose Estimation**: The `pose_estimation` package processes Kinect data with MediaPipe to detect key joints and publishes 3D coordinates to `/pose/joint_poses`. Inverse kinematics drives robot joint movements.
+- **Visualization**: The `gazebo.launch.py` file launches Gazebo, RViz, and `robot_state_publisher` to visualize the robot and its environment.
+- **Web Interface**: The `robot_control_ui` package runs a Flask server with a web interface for real-time monitoring and manual joint control.
 
 ## Prerequisites
-- **ROS2 Humble** (tested on Ubuntu 22.04)
-- **Blender** (with Phobos plugin for URDF export, used to design the robot model and export it as URDF with DAE format references)
-- **rosbridge_server** (for web interface, install with `sudo apt install ros-humble-rosbridge-server`)
-  
+- **Operating System**: Ubuntu 22.04 (tested).
+- **ROS2**: Humble Hawksbill (`ros-humble-desktop`).
+- **Blender**: Version with Phobos plugin for URDF export.
+- **Kinect Camera**: Compatible with `kinect2_bridge` (Azure Kinect or Kinect v2).
+- **Python Dependencies**:
+  - `mediapipe`, `opencv-python`, `ikpy`, `numpy` (install via `pip`).
+  - `rosbridge_server` for web interface (`sudo apt install ros-humble-rosbridge-server`).
+- **Other Tools**: Git, `colcon` build tool, `rosdep`.
+
 ## Installation
-1. **Set up ROS2 Humble:**
+1. **Set up ROS2 Humble**:
    ```bash
    sudo apt update
    sudo apt install ros-humble-desktop
    source /opt/ros/humble/setup.bash
-
-2. **Clone the repository:**
-   ```bash
-    mkdir -p ~/rmis_ws/src
-    cd ~/rmis_ws/src
-    git clone https://github.com/enesisaoglu/rmis_ws.git
-
-3. **Install dependencies and build:**
-   ```bash
-    cd ~/rmis_ws
-    rosdep install --from-paths src --ignore-src -r -y
-    colcon build
-    source install/setup.bash
-
-## Usage
-
-1. **Visualize the robot in RViz and Gazebo:**
-   ```bash
-   ros2 launch rmis_description display.launch.py
- ![rmis_rviz](https://github.com/user-attachments/assets/7640da43-6544-4a3b-98e2-9ecd17414d78)
-
-2. **Connect to the RMIS web interface (optional):**
-To use the graphical user interface for interacting with the RMIS robot, follow the instructions in the [rmis_interface_ws](https://github.com/enesisaoglu/rmis_interface_ws)
-repository to set up and run the web server. Then, in this workspace, run the following command to start the rosbridge_server and publish messages to /my_topic for the web interface:
-   ```bash
-   ros2 launch rmis_data_publisher data_publisher_launch.py
-
-   
-## Contributing
-Feel free to fork this project, submit issues, or send pull requests. All contributions are welcome!
-
-## License
-This project is licensed under the MIT License.
-
-
-
-
