@@ -1,7 +1,8 @@
 # RMIS
 
 ## Overview
-RMIS (Robot Motion Imitation System) is an open-source humanoid robot project designed to mimic human movements by processing skeletal data from a Kinect camera using MediaPipe for pose estimation. The system captures RGB and depth data from the Kinect, estimates 3D joint positions, computes inverse kinematics (IK) for a humanoid robot, and visualizes the results in RViz and Gazebo. A Flask-based web interface allows real-time monitoring and control of the robot’s joint states. Developed as a capstone project, RMIS leverages ROS2 Humble, Blender, MediaPipe, and IKPy.
+RMIS is an open-source humanoid robot project designed to mimic human movements by processing skeletal data from a Kinect camera using MediaPipe for pose estimation. The system captures RGB and depth data from the Kinect, estimates 3D joint positions, computes inverse kinematics (IK) for a humanoid robot, and visualizes the results in RViz and Gazebo. A Flask-based web interface allows real-time monitoring and control of the robot’s joint states. Developed as a capstone project, RMIS leverages ROS2 Humble, Blender, MediaPipe, and IKPy.
+ ![rmis_rviz](https://github.com/user-attachments/assets/7640da43-6544-4a3b-98e2-9ecd17414d78)
 
 ## Features
 - **Robot Model**: Designed in Blender and exported as a URDF with STL models using the Phobos plugin.
@@ -38,12 +39,14 @@ RMIS (Robot Motion Imitation System) is an open-source humanoid robot project de
    mkdir -p ~/rmis_ws/src
    cd ~/rmis_ws/src
    git clone https://github.com/enesisaoglu/rmis_ws.git
-3. **Install Dependencies**:
+3. **Set up Kinect Integration**:
+   - The kinect2_bridge package must be integrated into the rmis workspace in order to use the Kinect camera for RGB and depth data processing. Follow the instructions from [kinect2_ros2](https://gitioc.upc.edu/labs/kinect2_ros2) to source and configure the package.
+4. **Install Dependencies**:
    ```bash
    cd ~/rmis_ws
    rosdep install --from-paths src --ignore-src -r -y
    pip install mediapipe opencv-python ikpy numpy
-4. **Build the Workspace**:
+5. **Build the Workspace**:
    ```bash
    colcon build
    source install/setup.bash
