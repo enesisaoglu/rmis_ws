@@ -2,7 +2,8 @@
 
 ## Overview
 RMIS is an open-source humanoid robot project designed to mimic human movements by processing skeletal data from a Kinect camera using MediaPipe for pose estimation. The system captures RGB and depth data from the Kinect, estimates 3D joint positions, computes inverse kinematics (IK) for a humanoid robot, and visualizes the results in RViz and Gazebo. A Flask-based web interface allows real-time monitoring and control of the robot’s joint states. Developed as a capstone project, RMIS leverages ROS2 Humble, Blender, MediaPipe, and IKPy.
- ![rmis_rviz](https://github.com/user-attachments/assets/7640da43-6544-4a3b-98e2-9ecd17414d78)
+![rmis](https://github.com/user-attachments/assets/8887c0eb-62ef-40e4-991f-b82cfd643920)
+
 
 ## Features
 - **Robot Model**: Designed in Blender and exported as a URDF with STL models using the Phobos plugin.
@@ -56,7 +57,9 @@ RMIS is an open-source humanoid robot project designed to mimic human movements 
    - Run the Gazebo simulation and RViz visualization:
    ```bash
    ros2 launch rmis gazebo.launch.py
-   ```   
+   ```
+ ![rmis2](https://github.com/user-attachments/assets/24865d23-0279-4440-a657-5192fbdc1b2d)
+
    - This will:
      - Loads the URDF (`rmisurdf.urdf`) and world file (`stable.world`).
      - Starts robot_state_publisher and spawns the robot in Gazebo.
@@ -71,6 +74,8 @@ RMIS is an open-source humanoid robot project designed to mimic human movements 
    ```bash
    ros2 launch pose_estimation pose_estimation_launch.py
    ```
+![rmis3](https://github.com/user-attachments/assets/c010a360-4d7f-469b-b275-140e51b1799f)
+
    - This will run:
      - `image_processing_node`: Detects skeletal joints (nose, wrists, feet) using MediaPipe, computes 3D coordinates with depth data, and publishes to `/pose/joint_poses` and `/pose/annotated_image`.
      - `rmis_mimic_node`: Computes inverse kinematics for the robot’s joints (arms, legs, head) using IKPy and publishes to `/joint_states`.
@@ -80,6 +85,8 @@ RMIS is an open-source humanoid robot project designed to mimic human movements 
       ```bash
       ros2 launch rmis_data_publisher data_publisher_launch.py
      ```
+   ![rmis_ui](https://github.com/user-attachments/assets/ea458623-f3ca-48b1-a38c-df47be1c5b1f)
+
     - Access the interface at `http://localhost:5000` in a web browser.
     - Features:
        - Real-time MediaPipe-annotated video feed (`/mediapipe_feed`).
@@ -88,6 +95,7 @@ RMIS is an open-source humanoid robot project designed to mimic human movements 
        - Start/Stop buttons to toggle motion imitation.
        - Displays current joint angles (calibrated with +90° offset).
     - Note: Ensure `rosbridge_server` is installed for WebSocket communication.
+  
 ## Project Structure  
   - `rmis` Package:
      - Contains the URDF (`rmisurdf.urdf`), world file (`stable.world`), and controller configurations (`controllers.yaml`).
