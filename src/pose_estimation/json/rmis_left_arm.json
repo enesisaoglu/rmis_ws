@@ -1,0 +1,32 @@
+{
+  "elements": [
+    "base_link",
+    "l_upper_shoulder_link_joint",
+    "l_upper_shoulder_link",
+    "l_lower_shoulder_link_joint",
+    "l_lower_shoulder_link",
+    "l_upper_arm_link_joint",
+    "l_upper_arm_link",
+    "l_lower_arm_link_joint",
+    "l_lower_arm_link",
+    "l_hand_link_joint",
+    "l_hand_link"
+  ],
+  "urdf_file": "rmisurdf.urdf",
+  "active_links_mask": [
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+  ],
+  "last_link_vector": [
+    0,
+    0.1,
+    0
+  ],
+  "name": "rmis_left_arm",
+  "version": "v1"
+}

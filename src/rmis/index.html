@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Robot Camera Stream</title>
+</head>
+<body>
+  <h1>📷 Live Camera Stream</h1>
+
+  <img src="http://http://192.168.0.194:8080/stream_viewer?topic=/rmis/rasp_cam/image_raw&type=mjpeg" width="1920" height="1080" />
+
+  <script src="https://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+  <script>
+    const ros = new ROSLIB.Ros({
+      url: 'ws://192.168.0.194:9090'
+    });
+
+    ros.on('connection', () => {
+      console.log('✅ Connected to rosbridge');
+    });
+
+    ros.on('error', (error) => {
+      console.error('❌ Error connecting to rosbridge:', error);
+    });
+
+    ros.on('close', () => {
+      console.warn('🔌 Disconnected from rosbridge');
+    });
+  </script>
+</body>
+</html>
+

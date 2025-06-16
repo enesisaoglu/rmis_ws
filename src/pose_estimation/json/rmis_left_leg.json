@@ -1,0 +1,35 @@
+{
+  "elements": [
+    "base_link",
+    "lower_body_link_joint",
+    "lower_body_link",
+    "l_upper_hip_link_joint",
+    "l_upper_hip_link",
+    "l_lower_hip_link_joint",
+    "l_lower_hip_link",
+    "l_upper_leg_outer_link_joint",
+    "l_upper_leg_outer_link",
+    "l_lower_leg_outer_link_joint",
+    "l_lower_leg_outer_link",
+    "l_lower_ankle_link_joint",
+    "l_lower_ankle_link"
+  ],
+  "urdf_file": "rmisurdf.urdf",
+  "active_links_mask": [
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false
+  ],
+  "last_link_vector": [
+    0,
+    0,
+    0
+  ],
+  "name": "rmis_left_leg",
+  "version": "v1"
+}

@@ -1,0 +1,53 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    effort_controllers:
+      type: effort_controllers/JointGroupEffortController
+      joints:
+        - u_upper_body_link_joint
+        - head_inner_link_joint
+        - r_upper_body_link_joint
+        - r_lower_shoulder_upper_link_joint
+        - r_lower_shoulder_lower_link_joint
+        - r_lower_arm_upper_link_joint
+        - r_lower_arm_lower_link_joint
+        - l_upper_body_link_joint
+        - l_lower_shoulder_upper_link_joint
+        - l_lower_shoulder_lower_link_joint
+        - l_lower_arm_upper_link_joint
+        - l_lower_arm_lower_link_joint
+        - r_lower_body_link_joint
+        - r_lower_hip_link_joint
+        - r_upper_leg_outer_link_joint
+        - r_lower_leg_outer_link_joint
+        - r_lower_ankle_link_joint
+        - l_lower_body_link_joint
+        - l_lower_hip_link_joint
+        - l_upper_leg_outer_link_joint
+        - l_lower_leg_outer_link_joint
+        - l_lower_ankle_link_joint
+      gains:
+        u_upper_body_link_joint: {p: 100.0, d: 10.0, i: 0.0}
+        head_inner_link_joint: {p: 100.0, d: 10.0, i: 0.0}
+        r_upper_body_link_joint: {p: 100.0, d: 10.0, i: 0.0}
+        r_lower_shoulder_upper_link_joint: {p: 100.0, d: 10.0, i: 0.0}
+        r_lower_shoulder_lower_link_joint: {p: 100.0, d: 10.0, i: 0.0}
+        r_lower_arm_upper_link_joint: {p: 100.0, d: 10.0, i: 0.0}
+        r_lower_arm_lower_link_joint: {p: 100.0, d: 10.0, i: 0.0}
+        l_upper_body_link_joint: {p: 100.0, d: 10.0, i: 0.0}
+        l_lower_shoulder_upper_link_joint: {p: 100.0, d: 10.0, i: 0.0}
+        l_lower_shoulder_lower_link_joint: {p: 100.0, d: 10.0, i: 0.0}
+        l_lower_arm_upper_link_joint: {p: 100.0, d: 10.0, i: 0.0}
+        l_lower_arm_lower_link_joint: {p: 100.0, d: 10.0, i: 0.0}
+        r_lower_body_link_joint: {p: 200.0, d: 20.0, i: 0.0}
+        r_lower_hip_link_joint: {p: 200.0, d: 20.0, i: 0.0}
+        r_upper_leg_outer_link_joint: {p: 200.0, d: 20.0, i: 0.0}
+        r_lower_leg_outer_link_joint: {p: 200.0, d: 20.0, i: 0.0}
+        r_lower_ankle_link_joint: {p: 200.0, d: 20.0, i: 0.0}
+        l_lower_body_link_joint: {p: 200.0, d: 20.0, i: 0.0}
+        l_lower_hip_link_joint: {p: 200.0, d: 20.0, i: 0.0}
+        l_upper_leg_outer_link_joint: {p: 200.0, d: 20.0, i: 0.0}
+        l_lower_leg_outer_link_joint: {p: 200.0, d: 20.0, i: 0.0}
+        l_lower_ankle_link_joint: {p: 200.0, d: 20.0, i: 0.0}

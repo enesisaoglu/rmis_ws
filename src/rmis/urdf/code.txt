@@ -1,0 +1,6 @@
+source /opt/ros/humble/setup.bash
+cd ~/rmis_ws
+colcon build --packages-select rmis
+source install/setup.bash
+ros2 launch rmis gazebo.launch.py
+

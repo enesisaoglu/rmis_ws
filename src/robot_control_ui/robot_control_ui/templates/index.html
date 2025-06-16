@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Robot Control UI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 20px auto;
+      background: #f4f4f9;
+      color: #222;
+    }
+    h1 {
+      text-align: center;
+      color: #d32f2f;
+      margin-bottom: 20px;
+    }
+    .video-container {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .video-box {
+      text-align: center;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+      padding: 10px;
+      flex: 1;
+    }
+    .video-box img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 8px;
+      border: 2px solid #d32f2f;
+    }
+    .video-error {
+      color: #d32f2f;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    .controls-container {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    #controls {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+      flex: 3;
+    }
+    #toggle-container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .section {
+      margin-bottom: 15px;
+    }
+    .section h3 {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      color: #333;
+    }
+    .slider-group {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    label {
+      width: 200px;
+      font-weight: bold;
+    }
+    input[type=range] {
+      flex: 1;
+    }
+    #buttons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 15px;
+    }
+    button {
+      background-color: #d32f2f;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #b71c1c;
+    }
+    #status {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+    #mode-status {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Robot Control UI</h1>
+
+  <div class="video-container">
+    <div class="video-box">
+      <h3>MediaPipe</h3>
+      <img id="mediapipe-video" src="/mediapipe_feed" alt="MediaPipe Stream" />
+      <div id="mediapipe-error" class="video-error"></div>
+    </div>
+    <div class="video-box">
+      <h3>Robot Camera</h3>
+      <img id="robot-video" src="/robot_cam_feed" alt="Robot Camera Stream" />
+      <div id="robot-video-error" class="video-error"></div>
+    </div>
+  </div>
+
+  <div class="controls-container">
+    <div id="controls">
+      <div class="section">
+        <h3>Right Arm</h3>
+        <div class="slider-group">
+          <label for="r_upper_shoulder_link_joint">R Upper Shoulder:</label>
+          <input type="range" id="r_upper_shoulder_link_joint" min="32.54" max="206.54" value="90" step="0.01" disabled="true" />
+          <span id="r_upper_shoulder_link_joint-val">0.00</span>°
+        </div>
+        <div class="slider-group">
+          <label for="r_lower_shoulder_link_joint">R Lower Shoulder:</label>
+          <input type="range" id="r_lower_shoulder_link_joint" min="-24.59" max="90" value="90" step="0.01" disabled="true" />
+          <span id="r_lower_shoulder_link_joint-val">0.00</span>°
+        </div>
+        <div class="slider-group">
+          <label for="r_upper_arm_link_joint">R Upper Arm:</label>
+          <input type="range" id="r_upper_arm_link_joint" min="0" max="180" value="90" step="0.01" disabled="true" />
+          <span id="r_upper_arm_link_joint-val">0.00</span>°
+        </div>
+        <div class="slider-group">
+          <label for="r_lower_arm_link_joint">R Lower Arm (Elbow):</label>
+          <input type="range" id="r_lower_arm_link_joint" min="-24.59" max="204.59" value="90" step="0.01" disabled="true" />
+          <span id="r_lower_arm_link_joint-val">0.00</span>°
+        </div>
+        <div class="slider-group">
+          <label for="r_hand_link_joint">R Hand (Wrist):</label>
+          <input type="range" id="r_hand_link_joint" min="55.62" max="90" value="90" step="0.01" disabled="true" />
+          <span id="r_hand_link_joint-val">0.00</span>°
+        </div>
+      </div>
+      <div class="section">
+        <h3>Left Arm</h3>
+        <div class="slider-group">
+          <label for="l_upper_shoulder_link_joint">L Upper Shoulder:</label>
+          <input type="range" id="l_upper_shoulder_link_joint" min="-24.59" max="204.59" value="90" step="0.01" disabled="true" />
+          <span id="l_upper_shoulder_link_joint-val">0.00</span>°
+        </div>
+        <div class="slider-group">
+          <label for="l_lower_shoulder_link_joint">L Lower Shoulder:</label>
+          <input type="range" id="l_lower_shoulder_link_joint" min="90" max="204.59" value="90" step="0.01" disabled="true" />
+          <span id="l_lower_shoulder_link_joint-val">0.00</span>°
+        </div>
+        <div class="slider-group">
+          <label for="l_upper_arm_link_joint">L Upper Arm:</label>
+          <input type="range" id="l_upper_arm_link_joint" min="0" max="180" value="90" step="0.01" disabled="true" />
+          <span id="l_upper_arm_link_joint-val">0.00</span>°
+        </div>
+        <div class="slider-group">
+          <label for="l_lower_arm_link_joint">L Lower Arm (Elbow):</label>
+          <input type="range" id="l_lower_arm_link_joint" min="0" max="180" value="90" step="0.01" disabled="true" />
+          <span id="l_lower_arm_link_joint-val">0.00</span>°
+        </div>
+        <div class="slider-group">
+          <label for="l_hand_link_joint">L Hand (Wrist):</label>
+          <input type="range" id="l_hand_link_joint" min="90" max="124.38" value="90" step="0.01" disabled="true" />
+          <span id="l_hand_link_joint-val">0.00</span>°
+        </div>
+      </div>
+      <div class="section">
+        <h3>Head</h3>
+        <div class="slider-group">
+          <label for="neck_link_joint">Neck (Yaw):</label>
+          <input type="range" id="neck_link_joint" min="0" max="180" value="90" step="0.01" disabled="true" />
+          <span id="neck_link_joint-val">0.00</span>°
+        </div>
+        <div class="slider-group">
+          <label for="head_link_joint">Head (Pitch):</label>
+          <input type="range" id="head_link_joint" min="32.70" max="147.30" value="90" step="0.01" disabled="true" />
+          <span id="head_link_joint-val">0.00</span>°
+        </div>
+      </div>
+      <div id="buttons">
+        <button id="start-btn">Start</button>
+        <button id="stop-btn">Stop</button>
+        <span id="mode-status">Stopped</span>
+      </div>
+    </div>
+    <div id="toggle-container">
+      <button id="toggle-sliders">Enable Sliders</button>
+    </div>
+  </div>
+
+  <div id="status">
+    <strong>Current Angles:</strong>
+    <pre id="current-angles">{}</pre>
+  </div>
+
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script>
+    const socket = io();
+
+    const sliders = document.querySelectorAll('input[type="range"]');
+    const currentAnglesEl = document.getElementById("current-angles");
+    const startBtn = document.getElementById("start-btn");
+    const stopBtn = document.getElementById("stop-btn");
+    const toggleSlidersBtn = document.getElementById("toggle-sliders");
+    const modeStatusEl = document.getElementById("mode-status");
+    const mediapipeVideo = document.getElementById("mediapipe-video");
+    const mediapipeError = document.getElementById("mediapipe-error");
+    const robotVideo = document.getElementById("robot-video");
+    const robotVideoError = document.getElementById("robot-video-error");
+
+    // Map slider IDs to their label texts
+    const labelMap = {};
+    document.querySelectorAll('.slider-group label').forEach(label => {
+      const sliderId = label.getAttribute('for');
+      labelMap[sliderId] = label.textContent.trim().replace(':', '');
+    });
+
+    let isStarted = false;
+    let slidersEnabled = false;
+
+    function sendAngles() {
+      if (!isStarted || !slidersEnabled) return; // Only send if started and sliders enabled
+      const angles = {};
+      const displayLines = [];
+      sliders.forEach(slider => {
+        const value = parseFloat(slider.value).toFixed(2);
+        angles[slider.id] = parseFloat(slider.value);
+        displayLines.push(`[${labelMap[slider.id]}]: ${(parseFloat(slider.value) - 90).toFixed(2)}`);
+      });
+      socket.emit("update_angles", angles);
+      currentAnglesEl.textContent = displayLines.join('\n');
+    }
+
+    function updateSliderState() {
+      socket.emit("slider_state", { enabled: slidersEnabled }); // Notify backend of slider state
+      if (slidersEnabled && isStarted) sendAngles(); // Send slider angles if enabled and started
+    }
+
+    // Monitor video feed loading
+    function checkVideoFeed(img, errorElement, feedName) {
+      img.onerror = () => {
+        errorElement.textContent = `${feedName} feed failed to load. Check server or network.`;
+      };
+      img.onload = () => {
+        errorElement.textContent = ''; // Clear error if image loads
+      };
+    }
+
+    sliders.forEach(slider => {
+      slider.addEventListener('input', () => {
+        const valueSpan = document.getElementById(`${slider.id}-val`);
+        valueSpan.textContent = (parseFloat(slider.value) - 90).toFixed(2); // Display angle without +90 offset
+        sendAngles();
+      });
+    });
+
+    startBtn.onclick = () => {
+      isStarted = true;
+      modeStatusEl.textContent = "Started";
+      socket.emit("command", { action: "start" }); // Notify backend to start processing
+      updateSliderState(); // Ensure correct data source is used
+      // Refresh MediaPipe feed
+      mediapipeVideo.src = `/mediapipe_feed?${new Date().getTime()}`;
+    };
+
+    stopBtn.onclick = () => {
+      isStarted = false;
+      modeStatusEl.textContent = "Stopped";
+      socket.emit("command", { action: "stop" }); // Notify backend to stop processing
+    };
+
+    toggleSlidersBtn.onclick = () => {
+      slidersEnabled = !slidersEnabled;
+      sliders.forEach(slider => {
+        slider.disabled = !slidersEnabled;
+      });
+      toggleSlidersBtn.textContent = slidersEnabled ? 'Disable Sliders' : 'Enable Sliders';
+      updateSliderState(); // Notify backend of slider state change
+      if (slidersEnabled && isStarted) sendAngles(); // Update display with slider values
+    };
+
+    socket.on("connect", () => {
+      console.log("Socket connected");
+      socket.emit("request_status");
+      // Initialize current-angles display
+      const displayLines = [];
+      sliders.forEach(slider => {
+        const value = (parseFloat(slider.value) - 90).toFixed(2);
+        displayLines.push(`[${labelMap[slider.id]}]: ${value}`);
+      });
+      currentAnglesEl.textContent = displayLines.join('\n');
+      socket.emit("slider_state", { enabled: slidersEnabled }); // Send initial slider state
+      // Initialize video feed checks
+      checkVideoFeed(mediapipeVideo, mediapipeError, "MediaPipe");
+      checkVideoFeed(robotVideo, robotVideoError, "Robot Camera");
+      // Set MediaPipe feed source
+      mediapipeVideo.src = `/mediapipe_feed?${new Date().getTime()}`;
+    });
+
+    socket.on("angles_update", (data) => {
+      if (!isStarted || slidersEnabled) return; // Ignore updates if not started or sliders enabled
+      const displayLines = [];
+      sliders.forEach(slider => {
+        if (data[slider.id] !== undefined) {
+          slider.value = data[slider.id];
+          const valueSpan = document.getElementById(`${slider.id}-val`);
+          valueSpan.textContent = (parseFloat(data[slider.id]) - 90).toFixed(2); // Display without +90 offset
+          displayLines.push(`[${labelMap[slider.id]}]: ${(parseFloat(data[slider.id]) - 90).toFixed(2)}`);
+        }
+      });
+      currentAnglesEl.textContent = displayLines.join('\n');
+    });
+
+    socket.on("command", (data) => {
+      if (data.action === "start") {
+        isStarted = true;
+        modeStatusEl.textContent = "Started";
+        mediapipeVideo.src = `/mediapipe_feed?${new Date().getTime()}`; // Refresh feed on start
+      } else if (data.action === "stop") {
+        isStarted = false;
+        modeStatusEl.textContent = "Stopped";
+      }
+    });
+  </script>
+</body>
+</html>

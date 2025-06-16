@@ -1,0 +1,719 @@
+<robot name="rmis" version="1.0">
+
+  <link name="root"/>
+  
+  <!-- Fixed Joint to Connect World to Base Link -->
+  <joint name="root_to_base_joint" type="fixed">
+    <parent link="root"/>
+    <child link="base_link"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.004502 0.000374 0.424015"/>
+    <dynamics damping="0.01000" friction="0.1"/>
+  </joint>
+
+  <joint name="camera_link_joint" type="fixed">
+    <origin rpy="0.00000 0.00000 0.00000" xyz="0.03423 -0.02489 0.01964"/>
+    <parent link="head_link"/>
+    <child link="camera_link"/>
+  </joint>
+  <joint name="head_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-1.0" upper="1.0" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="0.00000 0.00000 -0.00000" xyz="-0.00016 0.02457 0.02881"/>
+    <parent link="neck_link"/>
+    <child link="head_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="l_hand_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="0.00000" upper="0.60000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="-0.00000 -0.00000 -0.00000" xyz="-0.00020 -0.00235 -0.06872"/>
+    <parent link="l_lower_arm_link"/>
+    <child link="l_hand_link"/>
+    <axis xyz="-1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="l_lower_ankle_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-0.30000" upper="0.30000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="0.00000 -0.00000 -0.00000" xyz="0.00000 0.00000 -0.06699"/>
+    <parent link="l_lower_leg_outer_link"/>
+    <child link="l_lower_ankle_link"/>
+    <axis xyz="0.00000 -1.00000 0.00000"/>
+  </joint>
+  <joint name="l_lower_arm_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-1.57000" upper="1.57000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="0.00000 -0.00000 -0.00000" xyz="0.00020 -0.00000 -0.03014"/>
+    <parent link="l_upper_arm_link"/>
+    <child link="l_lower_arm_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="l_lower_hip_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="0.00000" upper="1.00000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00939 -0.01493"/>
+    <parent link="l_upper_hip_link"/>
+    <child link="l_lower_hip_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="l_lower_leg_outer_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-1.00000" upper="0.00000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00003 -0.00000 -0.06694"/>
+    <parent link="l_upper_leg_outer_link"/>
+    <child link="l_lower_leg_outer_link"/>
+    <axis xyz="0.00000 -1.00000 0.00000"/>
+  </joint>
+  <joint name="l_lower_shoulder_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="0.00000" upper="2.00000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00004 0.02998 0.00068"/>
+    <parent link="l_upper_shoulder_link"/>
+    <child link="l_lower_shoulder_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="l_upper_arm_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-1.57000" upper="1.57000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="-0.00000 0.00000 -0.00000" xyz="0.00404 -0.00075 -0.08784"/>
+    <parent link="l_lower_shoulder_link"/>
+    <child link="l_upper_arm_link"/>
+    <axis xyz="0.00000 0.00000 -1.00000"/>
+  </joint>
+  <joint name="l_upper_hip_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-1.00000" upper="0.30000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.04844 -0.03856"/>
+    <parent link="lower_body_link"/>
+    <child link="l_upper_hip_link"/>
+    <axis xyz="0.00000 0.00000 -1.00000"/>
+  </joint>
+  <joint name="l_upper_leg_outer_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-1.00000" upper="1.00000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="-0.00000 -0.00000 0.00000" xyz="0.00324 -0.00000 -0.04515"/>
+    <parent link="l_lower_hip_link"/>
+    <child link="l_upper_leg_outer_link"/>
+    <axis xyz="0.00000 -1.00000 0.00000"/>
+  </joint>
+  <joint name="l_upper_shoulder_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-2.00000" upper="2.00000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="-0.00000 0.00000 -0.00000" xyz="-0.00000 0.10331 -0.00470"/>
+    <parent link="base_link"/>
+    <child link="l_upper_shoulder_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="lidar_link_joint" type="fixed">
+    <origin rpy="-0.00000 -0.00000 0.00000" xyz="0.06525 -0.00005 -0.06013"/>
+    <parent link="base_link"/>
+    <child link="lidar_link"/>
+  </joint>
+  <joint name="lower_body_link_joint" type="fixed">
+    <origin rpy="-0.00000 -0.00000 0.00000" xyz="-0.00765 -0.00023 -0.15850"/>
+    <parent link="base_link"/>
+    <child link="lower_body_link"/>
+  </joint>
+  <joint name="neck_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-1.57000" upper="1.57000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="-0.00000 -0.00000 0.00000" xyz="0.00921 -0.00023 0.03415"/>
+    <parent link="base_link"/>
+    <child link="neck_link"/>
+    <axis xyz="0.00000 0.00000 1.00000"/>
+  </joint>
+  <joint name="r_hand_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-0.60000" upper="0.00000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="-0.00000 0.00000 -0.00000" xyz="-0.00019 0.00217 -0.06919"/>
+    <parent link="r_lower_arm_link"/>
+    <child link="r_hand_link"/>
+    <axis xyz="-1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="r_lower_ankle_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-0.30000" upper="0.30000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="0.00000 0.00000 -0.00000" xyz="-0.00000 -0.00000 -0.06697"/>
+    <parent link="r_lower_leg_outer_link"/>
+    <child link="r_lower_ankle_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="r_lower_arm_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-2.00000" upper="2.00000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00019 0.00000 -0.03002"/>
+    <parent link="r_upper_arm_link"/>
+    <child link="r_lower_arm_link"/>
+    <axis xyz="0.00000 -1.00000 0.00000"/>
+  </joint>
+  <joint name="r_lower_hip_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-1.00000" upper="0.00000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="-0.00000 0.00000 0.00000" xyz="-0.00000 -0.00943 -0.01493"/>
+    <parent link="r_upper_hip_link"/>
+    <child link="r_lower_hip_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="r_lower_leg_outer_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="0.00000" upper="1.00000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00007 -0.00000 -0.06701"/>
+    <parent link="r_upper_leg_outer_link"/>
+    <child link="r_lower_leg_outer_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="r_lower_shoulder_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-2.00000" upper="0.00000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00007 -0.02985 0.00071"/>
+    <parent link="r_upper_shoulder_link"/>
+    <child link="r_lower_shoulder_link"/>
+    <axis xyz="1.00000 0.00000 0.00000"/>
+  </joint>
+  <joint name="r_upper_arm_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-1.57000" upper="1.57000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="0.00000 0.00000 -0.00000" xyz="0.00401 -0.00065 -0.08793"/>
+    <parent link="r_lower_shoulder_link"/>
+    <child link="r_upper_arm_link"/>
+    <axis xyz="0.00000 0.00000 -1.00000"/>
+  </joint>
+  <joint name="r_upper_hip_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-0.30000" upper="1.00000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.04842 -0.03856"/>
+    <parent link="lower_body_link"/>
+    <child link="r_upper_hip_link"/>
+    <axis xyz="0.00000 0.00000 -1.00000"/>
+  </joint>
+  <joint name="r_upper_leg_outer_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-1.00000" upper="1.00000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="0.00000 -0.00000 -0.00000" xyz="0.00356 0.00000 -0.04511"/>
+    <parent link="r_lower_hip_link"/>
+    <child link="r_upper_leg_outer_link"/>
+    <axis xyz="0.00000 1.00000 0.00000"/>
+  </joint>
+  <joint name="r_upper_shoulder_link_joint" type="revolute">
+    <dynamics damping="0.01000"/>
+    <limit lower="-2.00000" upper="2.00000" effort="1.00000" velocity="5.00000"/>
+    <origin rpy="-0.00000 -0.00000 0.00000" xyz="0.00007 -0.10267 -0.00473"/>
+    <parent link="base_link"/>
+    <child link="r_upper_shoulder_link"/>
+    <axis xyz="0.00000 -1.00000 0.00000"/>
+  </joint>
+  <link name="base_link">
+    <collision name="base_collision">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="0.01274 0.00000 -0.00000"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/base.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.38066" ixy="0.00001" ixz="-0.01156" iyy="0.28660" iyz="0.00015" izz="0.17282"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00975 0.00005 -0.05080"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="base">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="0.01274 0.00000 0.00000"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/base.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="camera_link">
+    <sensor name="rasp_cam" type="camera">
+      <origin rpy="-0.00000 1.57080 0.00000" xyz="0.01959 0.00068 0.00260"/>
+      <parent link="camera_link"/>
+      <camera>
+        <image>
+          <width>3280</width>
+          <height>2464</height>
+          <hfov>1.57080</hfov>
+        </image>
+      </camera>
+    </sensor>
+  </link>
+  <link name="head_link">
+    <collision name="head_collision">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="-0.00100 -0.02424 0.02414"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/head_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.03561" ixy="0.00864" ixz="0.00302" iyy="0.13627" iyz="-0.00030" izz="0.13317"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.03834 -2.42367 2.40866"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="head">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="-0.00100 -0.02424 0.02414"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/head_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="l_hand_link">
+    <collision name="l_hand_collision">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="-0.00776 -0.00857 -0.02601"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_hand_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.02188" ixy="-0.00001" ixz="-0.00003" iyy="0.03090" iyz="-0.00615" izz="0.01706"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.77797 -1.00655 -2.93531"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="l_hand">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="-0.00776 -0.00857 -0.02601"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_hand_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="l_lower_ankle_link">
+    <collision name="l_lower_ankle_collision">
+      <origin rpy="-0.00000 -0.00000 -1.57080" xyz="-0.00000 -0.01314 -0.01808"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_ankle_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.03822" ixy="-0.00419" ixz="0.00279" iyy="0.06090" iyz="0.00092" izz="0.08350"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="1.44070 -0.76526 -1.84558"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="l_lower_ankle">
+      <origin rpy="-0.00000 -0.00000 -1.57080" xyz="-0.00000 -0.01314 -0.01808"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_ankle_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="l_lower_arm_link">
+    <collision name="l_lower_arm_collision">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="-0.00480 0.00315 -0.05495"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_arm_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.09498" ixy="0.00140" ixz="-0.00221" iyy="0.09614" iyz="-0.00351" izz="0.01427"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.48033 0.31502 -5.49555"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="l_lower_arm">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="-0.00480 0.00315 -0.05495"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_arm_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="l_lower_hip_link">
+    <collision name="l_lower_hip_collision">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="0.01688 -0.00003 -0.02054"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_hip_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.02013" ixy="-0.00057" ixz="0.00111" iyy="0.02401" iyz="-0.00247" izz="0.01976"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="1.11607 -0.80897 -3.37238"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="l_lower_hip">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="0.01688 -0.00003 -0.02054"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_hip_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="l_lower_leg_outer_link">
+    <collision name="l_lower_leg_outer_collision">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="0.00000 -0.01314 -0.01807"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_lower_leg_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.03925" ixy="-0.00005" ixz="-0.00003" iyy="0.01880" iyz="0.00044" izz="0.02278"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.01705 -1.22037 -4.74635"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="l_lower_leg_outer">
+      <origin rpy="0.00000 -0.00000 -1.57080" xyz="0.00000 -0.01314 -0.01807"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_lower_leg_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="l_lower_shoulder_link">
+    <collision name="l_lower_shoulder_collision">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="-0.00218 -0.00118 -0.03476"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_shoulder_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.03992" ixy="-0.00042" ixz="-0.00029" iyy="0.04665" iyz="0.00209" izz="0.01048"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.30920 0.12490 -3.85418"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="l_lower_shoulder">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="-0.00218 -0.00118 -0.03476"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_shoulder_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="l_upper_arm_link">
+    <collision name="l_upper_arm_collision">
+      <origin rpy="-0.00000 -0.00000 -1.57080" xyz="0.00020 0.00034 -0.01207"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_arm_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.02355" ixy="0.00000" ixz="-0.00000" iyy="0.00797" iyz="-0.00000" izz="0.01869"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.02010 0.03414 -1.20705"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="l_upper_arm">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="0.00020 0.00034 -0.01207"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_arm_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="l_upper_hip_link">
+    <collision name="l_upper_hip_collision">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="0.01972 -0.00073 -0.01794"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_hip_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00929" ixy="-0.00050" ixz="-0.00128" iyy="0.01433" iyz="0.00015" izz="0.01827"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="1.15574 0.08236 -1.17399"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="l_upper_hip">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="0.01972 -0.00073 -0.01794"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_hip_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="l_upper_leg_outer_link">
+    <collision name="l_upper_leg_outer_collision">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="0.00000 -0.01703 -0.02039"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_upper_leg_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.03942" ixy="-0.00003" ixz="-0.00002" iyy="0.02318" iyz="-0.00016" izz="0.01853"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.01976 -1.14945 -4.62166"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="l_upper_leg_outer">
+      <origin rpy="-0.00000 -0.00000 -1.57080" xyz="0.00000 -0.01703 -0.02039"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_upper_leg_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="l_upper_shoulder_link">
+    <collision name="l_upper_shoulder_collision">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="0.00000 0.01191 0.00068"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_shoulder_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00797" ixy="0.00000" ixz="0.00000" iyy="0.01869" iyz="-0.00000" izz="0.02355"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 1.19149 0.06821"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="l_upper_shoulder">
+      <origin rpy="-0.00000 0.00000 -1.57079" xyz="0.00000 0.01191 0.00068"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/l_shoulder_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="lidar_link">
+    <collision name="lidar_collision">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="-0.00000 -0.00000 0.02270"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/TF_Luna.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00577" ixy="0.00001" ixz="-0.00006" iyy="0.00286" iyz="0.00001" izz="0.00502"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.01466 0.01105 2.23181"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <sensor name="tf_luna" type="lidar">
+      <parent link="lidar_link"/>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>1</samples>
+            <min_angle>0</min_angle>
+            <max_angle>0.00000</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>1</samples>
+            <min_angle>250</min_angle>
+            <max_angle>250.00000</max_angle>
+            <resolution>0.00000</resolution>
+          </vertical>
+        </scan>
+        <range>
+          <max>8.00000</max>
+        </range>
+      </ray>
+    </sensor>
+    <visual name="lidar">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="-0.00000 0.00000 0.02273"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/TF_Luna.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="lower_body_link">
+    <collision name="lower_body_collision">
+      <origin rpy="-0.00000 -0.00000 -1.57080" xyz="0.01134 0.01244 0.00000"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/lower_body_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.10350" ixy="-0.00040" ixz="-0.00015" iyy="0.03093" iyz="-0.00039" izz="0.10691"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.07679 0.09947 0.41644"/>
+      <mass value="0.01000"/>
+    </inertial>
+    <visual name="imu">
+      <origin rpy="0.00000 -0.00000 1.57080" xyz="-0.00851 0.00164 0.01139"/>
+      <geometry>
+        <box size="0.01761 0.02000 0.00335"/>
+      </geometry>
+    </visual>
+    <visual name="lower_body">
+      <origin rpy="-0.00000 -0.00000 -1.57080" xyz="0.01134 0.01244 0.00000"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/lower_body_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="neck_link">
+    <collision name="neck_collision">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="-0.01037 0.00005 0.01048"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/neck_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.02117" ixy="0.00102" ixz="0.00006" iyy="0.01455" iyz="0.00040" izz="0.01201"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.44385 -0.16955 3.31824"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="neck">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="-0.01037 0.00005 0.01048"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/neck_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="r_hand_link">
+    <collision name="r_hand_collision">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="0.00688 0.00969 -0.02916"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_hand_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.02188" ixy="-0.00001" ixz="0.00003" iyy="0.03107" iyz="0.00594" izz="0.01688"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.68901 0.96513 -2.90539"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="r_hand">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="0.00689 0.00965 -0.02905"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_hand_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="r_lower_ankle_link">
+    <collision name="r_lower_ankle_collision">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="-0.00000 0.01293 -0.01807"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_ankle_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.03829" ixy="0.00425" ixz="0.00279" iyy="0.06090" iyz="-0.00093" izz="0.08357"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="1.44071 0.74409 -1.84417"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="r_lower_ankle">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="0.00000 0.01293 -0.01807"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_ankle_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="r_lower_arm_link">
+    <collision name="r_lower_arm_collision">
+      <origin rpy="0.00000 -0.00000 -1.57080" xyz="0.00309 -0.00306 -0.05731"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_arm_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.10206" ixy="0.00152" ixz="-0.00067" iyy="0.10563" iyz="0.00469" izz="0.01624"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.31290 -0.30599 -5.73169"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="r_lower_arm">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="0.00313 -0.00306 -0.05731"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_arm_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="r_lower_hip_link">
+    <collision name="r_lower_hip_collision">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="0.00994 0.00000 -0.01628"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_hip_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.01902" ixy="0.00050" ixz="0.00093" iyy="0.01964" iyz="0.00119" izz="0.01918"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="1.16399 0.93891 -3.70864"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="r_lower_hip">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="0.00994 -0.00000 -0.01628"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_hip_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="r_lower_leg_outer_link">
+    <collision name="r_lower_leg_outer_collision">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="-0.00000 0.01293 -0.01803"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_lower_leg_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.03925" ixy="-0.00007" ixz="-0.00006" iyy="0.01880" iyz="-0.00044" izz="0.02278"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00989 1.19921 -4.74283"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="r_lower_leg_outer">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="0.00000 0.01293 -0.01803"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_lower_leg_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="r_lower_shoulder_link">
+    <collision name="r_lower_shoulder_collision">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="-0.00223 -0.00112 -0.03479"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_shoulder_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.03998" ixy="-0.00042" ixz="-0.00029" iyy="0.04670" iyz="0.00215" izz="0.01049"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.31358 0.13214 -3.85710"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="r_lower_shoulder">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="-0.00223 -0.00112 -0.03478"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_shoulder_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="r_upper_arm_link">
+    <collision name="r_upper_arm_collision">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="0.00005 -0.00000 -0.01203"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_arm_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.02355" ixy="0.00000" ixz="-0.00000" iyy="0.00797" iyz="0.00000" izz="0.01869"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.00455 -0.00003 -1.20342"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="r_upper_arm">
+      <origin rpy="-0.00000 -0.00000 -1.57080" xyz="0.00005 -0.00000 -0.01203"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_arm_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="r_upper_hip_link">
+    <collision name="r_upper_hip_collision">
+      <origin rpy="-0.00000 -0.00000 -1.57080" xyz="0.01380 0.00029 -0.01366"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_hip_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00929" ixy="0.00054" ixz="-0.00123" iyy="0.01437" iyz="-0.00018" izz="0.01831"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="1.15075 -0.04726 -1.17615"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="r_upper_hip">
+      <origin rpy="-0.00000 -0.00000 -1.57080" xyz="0.01380 0.00029 -0.01366"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_hip_link.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="r_upper_leg_outer_link">
+    <collision name="r_upper_leg_outer_collision">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="0.00000 0.01683 -0.02042"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_upper_leg_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.03943" ixy="-0.00004" ixz="-0.00008" iyy="0.02319" iyz="0.00016" izz="0.01854"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00274 1.12805 -4.62630"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="r_upper_leg_outer">
+      <origin rpy="-0.00000 0.00000 -1.57079" xyz="-0.00000 0.01683 -0.02042"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_upper_leg_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="r_upper_shoulder_link">
+    <collision name="r_upper_shoulder_collision">
+      <origin rpy="0.00000 0.00000 -1.57080" xyz="-0.00008 -0.01182 0.00089"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_shoulder_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.00797" ixy="0.00000" ixz="0.00000" iyy="0.01869" iyz="0.00000" izz="0.02355"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00757 -1.18156 0.08948"/>
+      <mass value="0.00500"/>
+    </inertial>
+    <visual name="r_upper_shoulder">
+      <origin rpy="-0.00000 0.00000 -1.57080" xyz="-0.00008 -0.01182 0.00089"/>
+      <geometry>
+        <mesh filename="package://rmis/meshes/stl/r_shoulder_joint.stl" scale="0.01000 0.01000 0.01000"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>

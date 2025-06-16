@@ -1,0 +1,9 @@
+build/
+install/
+log/
+*.pyc
+__pycache__/
+*.egg-info/
+.colcon/
+kinect2_bridge
+kinect2_ros2

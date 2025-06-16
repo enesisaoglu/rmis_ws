@@ -1,0 +1,14 @@
+{
+  "elements": [
+    "base_link",
+    "neck_link_joint",
+    "neck_link",
+    "head_link_joint",
+    "head_link"
+  ],
+  "urdf_file": "rmisurdf.urdf",
+  "active_links_mask": [false, true, true, true, false],  
+  "last_link_vector": [0.05, 0, 0.05],
+  "name": "rmis_head",
+  "version": "v1"
+}
