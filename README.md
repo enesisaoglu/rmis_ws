@@ -56,7 +56,26 @@ RMIS (Robot Motion Imitation System) is an open-source humanoid robot project de
    ros2 launch rmis gazebo.launch.py
    ```   
    - This will:
-     - Loads the URDF (rmisurdf.urdf) and world file (stable.world).
+     - Loads the URDF (`rmisurdf.urdf`) and world file (`stable.world`).
      - Starts robot_state_publisher and spawns the robot in Gazebo.
      - Launches RViz for visualization.
-   
+2. **Start the Kinect Camera**:
+   - Run the Kinect bridge to receive RGB and depth images:
+   ```bash
+   ros2 run kinect2_bridge kinect2_bridge --ros-args -p resolution:=qhd -p fps_limit:=30.0 -p depth_method:=cpu
+   ```
+3. **Run Pose Estimation**:
+   - Launch the pose estimation nodes to process Kinect data with MediaPipe:
+   ```bash
+   ros2 launch pose_estimation pose_estimation_launch.py
+   ```
+   - This will run:
+     - `image_processing_node`: Detects skeletal joints (nose, wrists, feet) using MediaPipe, computes 3D coordinates with depth data, and publishes to `/pose/joint_poses` and `/pose/annotated_image`.
+     - `rmis_mimic_node`: Computes inverse kinematics for the robot’s joints (arms, legs, head) using IKPy and publishes to `/joint_states`.
+    
+4. **Launch the Web Interface**:
+   - Start the Flask-based web interface for monitoring and control:
+      ```bash
+      ros2 launch rmis_data_publisher data_publisher_launch.py
+
+## Project Structure 
