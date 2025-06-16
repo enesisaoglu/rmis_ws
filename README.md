@@ -14,7 +14,7 @@ RMIS (Robot Motion Imitation System) is an open-source humanoid robot project de
 ## Current Status
 - **Robot Model**: URDF (`rmisurdf.urdf`) defined in the `rmis` package, with STL models and Gazebo-compatible configurations.
 - **Kinect Integration**: Uses the `kinect2_bridge` package to process RGB and depth data at QHD resolution (30 FPS, CPU-based depth method).
-- **Pose Estimation**: The `pose_estimation` package processes Kinect data with MediaPipe to detect key joints and publishes 3D coordinates to `/pose/joint_poses`. Inverse kinematics drives robot joint movements.
+- **Pose Estimation**: The `pose_estimation` package processes Kinect data with MediaPipe to detect key joints and publishes 3D coordinates to `/pose/joint_poses`. Inverse kinematics handles robot joint movements.
 - **Visualization**: The `gazebo.launch.py` file launches Gazebo, RViz, and `robot_state_publisher` to visualize the robot and its environment.
 - **Web Interface**: The `robot_control_ui` package runs a Flask server with a web interface for real-time monitoring and manual joint control.
 
@@ -22,9 +22,9 @@ RMIS (Robot Motion Imitation System) is an open-source humanoid robot project de
 - **Operating System**: Ubuntu 22.04 (tested).
 - **ROS2**: Humble Hawksbill (`ros-humble-desktop`).
 - **Blender**: Version with Phobos plugin for URDF export.
-- **Kinect Camera**: Compatible with `kinect2_bridge` (Azure Kinect or Kinect v2).
+- **Kinect Camera**: Compatible with `kinect2_bridge` (Kinect v2).
 - **Python Dependencies**:
-  - `mediapipe`, `opencv-python`, `ikpy`, `numpy` (install via `pip`).
+  - `mediapipe`, `opencv-python`, `ikpy`, `numpy`.
   - `rosbridge_server` for web interface (`sudo apt install ros-humble-rosbridge-server`).
 - **Other Tools**: Git, `colcon` build tool, `rosdep`.
 
@@ -34,3 +34,21 @@ RMIS (Robot Motion Imitation System) is an open-source humanoid robot project de
    sudo apt update
    sudo apt install ros-humble-desktop
    source /opt/ros/humble/setup.bash
+2. **Clone the Repository**:
+   ```bash
+   mkdir -p ~/rmis_ws/src
+   cd ~/rmis_ws/src
+   git clone https://github.com/enesisaoglu/rmis_ws.git
+3. **Install Dependencies**:
+   ```bash
+   cd ~/rmis_ws
+   rosdep install --from-paths src --ignore-src -r -y
+   pip install mediapipe opencv-python ikpy numpy
+4. **Build the Workspace**:
+   colcon build
+   source install/setup.bash
+
+## Usage
+1. **Launch Gazebo and RViz**:
+   Run the Gazebo simulation and RViz visualization:
+   
