@@ -54,6 +54,7 @@ RMIS (Robot Motion Imitation System) is an open-source humanoid robot project de
    - Run the Gazebo simulation and RViz visualization:
    ```bash
    ros2 launch rmis gazebo.launch.py
+   
    - This will:
      - Loads the URDF (rmisurdf.urdf) and world file (stable.world).
      - Starts robot_state_publisher and spawns the robot in Gazebo.
