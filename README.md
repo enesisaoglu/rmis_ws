@@ -108,5 +108,5 @@ This project is licensed under the MIT License.
 
 ## Acknowledgments
  - Developed by Enes Isaoglu and Semih Apaydin as a capstone project.
- - Built with ROS2 Humble, MediaPipe, IKPy, and Blender with the Phobos plugin.
- - Kinect integration based on the kinect2_ros2 package.
+ - Built with [ROS2 Humble](https://docs.ros.org/en/humble/), [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/guide), [IKPy](https://github.com/Phylliade/ikpy), and [Blender](https://www.blender.org/) with the [Phobos](https://github.com/dfki-ric/phobos) plugin.
+ - Kinect integration based on the [kinect2_ros2](https://gitioc.upc.edu/labs/kinect2_ros2) package.
