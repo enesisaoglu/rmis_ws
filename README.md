@@ -83,7 +83,7 @@ RMIS is an open-source humanoid robot project designed to mimic human movements 
 4. **Launch the Web Interface**:
    - Start the Flask-based web interface for monitoring and control:
       ```bash
-      ros2 launch rmis_data_publisher data_publisher_launch.py
+      ros2 launch robot_controller_ui robot_control_ui_launch.py
      ```
    ![rmis_ui](https://github.com/user-attachments/assets/ea458623-f3ca-48b1-a38c-df47be1c5b1f)
 
