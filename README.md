@@ -61,9 +61,9 @@ RMIS is an open-source humanoid robot project designed to mimic human movements 
  ![rmis2](https://github.com/user-attachments/assets/24865d23-0279-4440-a657-5192fbdc1b2d)
 
    - This will:
-     - Loads the URDF (`rmisurdf.urdf`) and world file (`stable.world`).
-     - Starts robot_state_publisher and spawns the robot in Gazebo.
-     - Launches RViz for visualization.
+     - Load the URDF (`rmisurdf.urdf`) and world file (`stable.world`).
+     - Start robot_state_publisher and spawns the robot in Gazebo.
+     - Launche RViz for visualization.
 2. **Start the Kinect Camera**:
    - Run the Kinect bridge to receive RGB and depth images:
    ```bash
